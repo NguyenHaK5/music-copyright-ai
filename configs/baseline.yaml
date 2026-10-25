@@ -1,0 +1,44 @@
+# Cấu hình Phase 2 (baseline M0/M1, và M2 ở 2C). Tham số là đề xuất khởi đầu.
+sr: 22050                 # phải khớp configs/features.yaml
+hop_length: 512           # phải khớp configs/features.yaml
+n_mels: 128
+n_fft: 2048
+audio_dir: data/raw/fma_small   # thư mục chứa mp3 FMA (dạng 000/000002.mp3); sửa nếu khác
+logmel_cache_dir: data/interim/logmel
+tracks_path: data/processed/tracks.parquet
+results_dir: experiments/results
+queries:
+  crop_sec: 5.0           # độ dài truy vấn sạch
+  n_per_known: 3          # số truy vấn mỗi bài known
+  n_per_unknown: 3        # số truy vấn mỗi bài unknown
+  seed: 42
+  dir: data/interim       # ghi queries_<split>_clean.parquet (dùng chung M0/M1/M2)
+m1:
+  win_sec: 5.0            # cửa sổ lập chỉ mục
+  hop_sec: 2.5
+  n_mfcc: 20
+  fit_tracks: 1500        # số bài Train dùng để fit scaler
+  fit_windows_per_track: 4
+  seed: 42
+m2:                       # fingerprint kiểu constellation, tính trên log-mel đã cache
+  peak_freq_size: 11      # lân cận cực đại cục bộ: số dải mel
+  peak_time_size: 11      # lân cận cực đại cục bộ: số khung (~0,25 s)
+  bg_freq_size: 31        # lân cận tính nền cục bộ
+  bg_time_size: 43
+  prominence_db: 3.0      # đỉnh phải cao hơn nền cục bộ ít nhất bấy nhiêu dB (bất biến theo độ lợi)
+  max_peaks_per_sec: 15   # giữ các đỉnh mạnh nhất mỗi giây
+  fan_out: 5              # số cặp tối đa mỗi điểm neo
+  dt_min: 1
+  dt_max: 63              # tối đa 63 khung (6 bit)
+  df_max: 40              # chênh lệch dải mel tối đa trong vùng đích
+  delta_bin: 1            # gộp độ lệch thời gian (khung)
+robust:
+  dir: data/interim/robust   # npz truy vấn robustness (không commit)
+  n_sources: 200             # số bài known và số bài unknown làm nguồn (mỗi loại)
+  n_interferers: 50          # số bài Train làm nguồn trộn cho nhóm 'overlay'
+  seed: 42
+openset:
+  max_fmr: 0.01           # đề xuất; chốt ở 2D, trước khi chạm Test
+  max_loss: 0.05
+  bootstrap: 1000
+  topk: [1, 5, 10]

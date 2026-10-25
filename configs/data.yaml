@@ -1,0 +1,41 @@
+# Cấu hình dữ liệu - Phase 1. Mọi giá trị "ĐỀ XUẤT" phải được xác nhận lại bằng smoke check / EDA.
+seed: 42
+dataset:
+  name: fma_small
+  subset: small            # giá trị cột ('set','subset') trong tracks.csv
+  # URL lấy từ README repo chính thức https://github.com/mdeff/fma - XÁC MINH lại trước khi tải.
+  metadata_url: https://os.unil.cloud.switch.ch/fma/fma_metadata.zip
+  audio_url: https://os.unil.cloud.switch.ch/fma/fma_small.zip
+  # SHA1 điền tay từ file checksum công bố của repo FMA. Để null thì bỏ qua kiểm tra (và log cảnh báo).
+  metadata_sha1: null
+  audio_sha1: null
+paths:
+  raw_dir: data/raw
+  metadata_csv: data/raw/fma_metadata/tracks.csv
+  audio_dir: data/raw/fma_small
+  results_dir: experiments/results
+smoke_gates:               # ĐỀ XUẤT - sẽ chốt sau khi thấy số liệu thật
+  max_missing_artist_rate: 0.01
+  min_artists: 300
+  min_artists_per_genre: 20
+  min_license_families: 3
+  min_tracks_per_license_family: 100
+  min_free_disk_gb: 15
+interim:
+  tracks_clean: data/interim/tracks_clean.parquet
+  near_pairs: data/interim/near_dup_pairs.csv
+  figures_dir: reports/figures
+  tables_dir: reports/tables
+  data_card: reports/report/data_card.md
+dedup:
+  # ĐỀ XUẤT: cosine của chữ ký phổ (mean log-mel, đã trừ trung bình toàn tập) >= ngưỡng thì GẮN CỜ nghi trùng.
+  # Chỉ gắn cờ + gom nhóm, không tự xóa. Hiệu chỉnh ngưỡng bằng histogram nn_cosine ở notebook EDA.
+  near_dup_cosine: 0.995
+  block_size: 1024
+split:
+  # Tỷ lệ theo SỐ BÀI (xấp xỉ, vì chia theo đơn vị nghệ sĩ/nhóm trùng). ĐỀ XUẤT từ Phase 0.
+  train: 0.60
+  val: 0.20
+  test: 0.20
+  known_fraction: 0.50     # trong Val/Test: phần known (vào chỉ mục); phần còn lại là unknown
+  tracks_parquet: data/processed/tracks.parquet

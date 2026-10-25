@@ -1,0 +1,32 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.env
+.claude/
+
+# gói đóng gói / lưu trữ
+*.tar
+*.zip
+*.rar
+colab_bundle/
+
+# dữ liệu: bỏ hết, chỉ giữ vài file nhỏ
+data/*
+!data/processed/
+data/processed/*
+!data/processed/tracks.parquet
+!data/interim/
+data/interim/*
+!data/interim/m3_norm.json
+
+# audio và tensor
+*.mp3
+*.wav
+*.npy
+
+# checkpoint: chỉ giữ best.pt của run cuối
+experiments/runs/**/last.pt
+experiments/runs/m3_abl_*[!2]*/best.pt   # nếu ngại glob, ghi tay từng thư mục run cần bỏ
+!experiments/runs/m3_abl_noise_coherent_k2_seed*/best.pt
+!experiments/runs/m3_abl_noise_coherent_k2_seed*/best.pt

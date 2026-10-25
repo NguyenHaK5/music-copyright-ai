@@ -1,0 +1,75 @@
+{
+  "n_known_queries": 2406,
+  "n_unknown_queries": 2397,
+  "n_index_tracks": 802,
+  "recall_at_1": {
+    "value": 0.0016625103906899418,
+    "ci95": [
+      0.00041562759767248546,
+      0.003740648379052369
+    ]
+  },
+  "recall_at_5": {
+    "value": 0.009559434746467166,
+    "ci95": [
+      0.005818786367414797,
+      0.013300083125519535
+    ]
+  },
+  "recall_at_10": {
+    "value": 0.014962593516209476,
+    "ci95": [
+      0.010390689941812137,
+      0.0199501246882793
+    ]
+  },
+  "mrr": {
+    "value": 0.010498910675719132,
+    "ci95": [
+      0.008579442180251154,
+      0.012611745723880964
+    ]
+  },
+  "chance_recall_at_1": 0.0012468827930174563,
+  "roc_auc_known_vs_unknown": 0.5057152696065427,
+  "eer": {
+    "eer": 0.998334368500942,
+    "tau": 0.9915519360962985,
+    "fmr": 0.9983312473925741,
+    "fnmr": 0.99833748960931
+  },
+  "operating_point": {
+    "max_fmr_target": 0.01,
+    "max_loss_target": 0.05,
+    "tau_high": 0.9999843796883041,
+    "tau_low": 0.9985522941237805,
+    "fmr_at_tau_high": 0.009595327492699207,
+    "known_outcomes_at_tau_high": {
+      "correct_accept": 0.0,
+      "wrong_id": 0.012884455527847049,
+      "rejected": 0.987115544472153
+    },
+    "labels_known": {
+      "KHÔNG_XÁC_ĐỊNH": 1653,
+      "NGOÀI_DANH_MỤC": 722,
+      "THUỘC_DANH_MỤC": 31
+    },
+    "labels_unknown": {
+      "KHÔNG_XÁC_ĐỊNH": 1649,
+      "NGOÀI_DANH_MỤC": 725,
+      "THUỘC_DANH_MỤC": 23
+    }
+  },
+  "model": "m0",
+  "split": "val",
+  "query_type": "clean_crop",
+  "created_utc": "2026-10-19T21:55:03.615555+00:00",
+  "seed": 42,
+  "crop_sec": 5.0,
+  "timing_sec": {
+    "build_index": 6.969999958528206e-05,
+    "score_all_queries": 0.014659399996162392,
+    "score_per_query_ms": 0.003052134082065874
+  },
+  "note": "Số trên Val dùng để chọn ngưỡng/mục tiêu; chưa phải kết quả cuối. Truy vấn là crop của clip đã index."
+}

@@ -1,0 +1,310 @@
+{
+  "created_utc": "2026-10-25T00:02:38.413576+00:00",
+  "final_config": "noise_coherent_k2",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "ok": true,
+  "checks": [
+    {
+      "name": "seed42: có e3_train_abl_noise_coherent_k2_seed42.json",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\experiments\\results\\e3_train_abl_noise_coherent_k2_seed42.json"
+    },
+    {
+      "name": "seed42: huấn luyện chỉ dùng train/val, test_touched=False",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seed42: chạy đủ epoch",
+      "ok": true,
+      "detail": "60/60, best_epoch=60, stopped_early=False"
+    },
+    {
+      "name": "seed42: đúng biến thể noise_coherent_k2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seed42: có e5_robust_val_m3_abl_noise_coherent_k2_seed42.json",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\experiments\\results\\e5_robust_val_m3_abl_noise_coherent_k2_seed42.json"
+    },
+    {
+      "name": "seed42: đủ 7 nhóm, không bỏ cấu hình",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seed42: có checkpoint best.pt ở m3_abl_noise_coherent_k2_seed42",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\experiments\\runs\\m3_abl_noise_coherent_k2_seed42\\best.pt"
+    },
+    {
+      "name": "seed42: cấu hình trong checkpoint là nhiễu {'mode': 'coherent', 'coherent_k': 2}",
+      "ok": true,
+      "detail": "{'p': 0.6, 'snr_db_min': 3.0, 'snr_db_max': 25.0, 'mode': 'coherent', 'coherent_k': 2}"
+    },
+    {
+      "name": "seed42: seed trong checkpoint khớp",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seed43: có e3_train_abl_noise_coherent_k2_seed43.json",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\experiments\\results\\e3_train_abl_noise_coherent_k2_seed43.json"
+    },
+    {
+      "name": "seed43: huấn luyện chỉ dùng train/val, test_touched=False",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seed43: chạy đủ epoch",
+      "ok": true,
+      "detail": "60/60, best_epoch=59, stopped_early=False"
+    },
+    {
+      "name": "seed43: đúng biến thể noise_coherent_k2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seed43: có e5_robust_val_m3_abl_noise_coherent_k2_seed43.json",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\experiments\\results\\e5_robust_val_m3_abl_noise_coherent_k2_seed43.json"
+    },
+    {
+      "name": "seed43: đủ 7 nhóm, không bỏ cấu hình",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seed43: có checkpoint best.pt ở m3_abl_noise_coherent_k2_seed43",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\experiments\\runs\\m3_abl_noise_coherent_k2_seed43\\best.pt"
+    },
+    {
+      "name": "seed43: cấu hình trong checkpoint là nhiễu {'mode': 'coherent', 'coherent_k': 2}",
+      "ok": true,
+      "detail": "{'p': 0.6, 'snr_db_min': 3.0, 'snr_db_max': 25.0, 'mode': 'coherent', 'coherent_k': 2}"
+    },
+    {
+      "name": "seed43: seed trong checkpoint khớp",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seed44: có e3_train_abl_noise_coherent_k2_seed44.json",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\experiments\\results\\e3_train_abl_noise_coherent_k2_seed44.json"
+    },
+    {
+      "name": "seed44: huấn luyện chỉ dùng train/val, test_touched=False",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seed44: chạy đủ epoch",
+      "ok": true,
+      "detail": "60/60, best_epoch=60, stopped_early=False"
+    },
+    {
+      "name": "seed44: đúng biến thể noise_coherent_k2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seed44: có e5_robust_val_m3_abl_noise_coherent_k2_seed44.json",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\experiments\\results\\e5_robust_val_m3_abl_noise_coherent_k2_seed44.json"
+    },
+    {
+      "name": "seed44: đủ 7 nhóm, không bỏ cấu hình",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "seed44: có checkpoint best.pt ở m3_abl_noise_coherent_k2_seed44",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\experiments\\runs\\m3_abl_noise_coherent_k2_seed44\\best.pt"
+    },
+    {
+      "name": "seed44: cấu hình trong checkpoint là nhiễu {'mode': 'coherent', 'coherent_k': 2}",
+      "ok": true,
+      "detail": "{'p': 0.6, 'snr_db_min': 3.0, 'snr_db_max': 25.0, 'mode': 'coherent', 'coherent_k': 2}"
+    },
+    {
+      "name": "seed44: seed trong checkpoint khớp",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mọi seed đánh giá trên cùng số truy vấn Val",
+      "ok": true,
+      "detail": "['6800']"
+    },
+    {
+      "name": "mọi checkpoint dùng cùng norm_std",
+      "ok": true,
+      "detail": "[15.189896072]"
+    },
+    {
+      "name": "bộ tổng hợp thấy đủ 3 seed của cấu hình cuối",
+      "ok": true,
+      "detail": "n_seeds=3"
+    },
+    {
+      "name": "trung bình Val vượt mức tham chiếu (thông tin, không phải ĐẠT/KHÔNG ĐẠT ở Test)",
+      "ok": true,
+      "detail": "R@1 0.9615, nhận đúng@FMR 0.8845"
+    },
+    {
+      "name": "chưa có kết quả Test nào trong experiments/results",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "có configs/targets.yaml",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\configs\\targets.yaml"
+    },
+    {
+      "name": "có configs/m3.yaml",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\configs\\m3.yaml"
+    },
+    {
+      "name": "có configs/m3_ablations.yaml",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\configs\\m3_ablations.yaml"
+    },
+    {
+      "name": "có configs/baseline.yaml",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\configs\\baseline.yaml"
+    },
+    {
+      "name": "có configs/features.yaml",
+      "ok": true,
+      "detail": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\configs\\features.yaml"
+    }
+  ],
+  "sha256": {
+    "ckpt_seed42": "f3513a02bf17c33423c59f5b85f69f1a285be6e5bbf8d895e063e0b5069e0cef",
+    "ckpt_seed43": "47dd2262961ea73a184f06a4b35b6ffa179ce7cc1b8da802da31494b9a878356",
+    "ckpt_seed44": "315ff7903965ac3b44fd6839b8b11f6b24f942812358202e6e2c39e2500f3b99",
+    "config_targets.yaml": "e92a24e2ac1f208081ebe0382d6b583292861b09986e76866a4652a2237e7779",
+    "config_m3.yaml": "e98da6f062bd346ffe47aae39b497118cd7e91a4cf3a02506b2f342e8fcd24d5",
+    "config_m3_ablations.yaml": "b369df749a200941b3d41aa80d5c7d1585649ec7b4d7b8e1971b87ed708ea507",
+    "config_baseline.yaml": "f5932da633b21ccf1b557c538d675834cb8f905c2be0f837bcac634e11d68444",
+    "config_features.yaml": "5452c4de53f63a5b4fd6048844ec13a5f319527fc5270b11c472acd1ec2eca65"
+  },
+  "per_seed_val": {
+    "42": {
+      "best_epoch": 60,
+      "best_val_loss": 1.4874370721338095,
+      "tau": 0.7895689010620118,
+      "macro_recall_at_1": 0.9579761904761904,
+      "macro_correct_accept": 0.8754166666666666
+    },
+    "43": {
+      "best_epoch": 59,
+      "best_val_loss": 1.4266956320857347,
+      "tau": 0.7817346453666688,
+      "macro_recall_at_1": 0.9635714285714286,
+      "macro_correct_accept": 0.8992261904761906
+    },
+    "44": {
+      "best_epoch": 60,
+      "best_val_loss": 1.4772092874611564,
+      "tau": 0.796809494495392,
+      "macro_recall_at_1": 0.9628571428571429,
+      "macro_correct_accept": 0.8789285714285714
+    }
+  },
+  "val_mean_std": {
+    "n_seeds": 3,
+    "macro_recall_at_1": {
+      "mean": 0.961468253968254,
+      "std": 0.0030452309591984107
+    },
+    "macro_correct_accept": {
+      "mean": 0.8845238095238095,
+      "std": 0.012853146424742659
+    },
+    "group_recall_at_1": {
+      "cut": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "codec": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "noise": {
+        "mean": 0.9677777777777777,
+        "std": 0.01347150628109131
+      },
+      "eq": {
+        "mean": 0.9900000000000001,
+        "std": 0.006614378277661504
+      },
+      "pitch": {
+        "mean": 0.9975,
+        "std": 0.0
+      },
+      "tempo": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "overlay": {
+        "mean": 0.775,
+        "std": 0.0050000000000000044
+      }
+    },
+    "group_correct_accept": {
+      "cut": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "codec": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "noise": {
+        "mean": 0.8533333333333334,
+        "std": 0.06660413734229369
+      },
+      "eq": {
+        "mean": 0.8816666666666667,
+        "std": 0.012583057392117928
+      },
+      "pitch": {
+        "mean": 0.9708333333333333,
+        "std": 0.013938107236398043
+      },
+      "tempo": {
+        "mean": 0.9975,
+        "std": 0.0025000000000000022
+      },
+      "overlay": {
+        "mean": 0.48833333333333334,
+        "std": 0.03055050463303893
+      }
+    }
+  },
+  "val_reference": {
+    "macro_recall_at_1": 0.7166,
+    "macro_correct_accept": 0.3301
+  },
+  "paths": {
+    "results_dir": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\experiments\\results",
+    "runs_dir": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\experiments\\runs",
+    "config_dir": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\CODE\\music-copyright-ai\\configs"
+  }
+}

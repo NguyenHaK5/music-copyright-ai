@@ -1,0 +1,87 @@
+# configs/m3.yaml - cấu hình M3 (CNN embedding + học tương phản).
+# 3A: khối data + augment. Các khối model/train sẽ được thêm ở 3B/3C.
+# sr, hop_length, n_mels PHẢI khớp configs/features.yaml (cache log-mel đã dựng bằng các giá trị đó).
+seed: 42
+
+data:
+  tracks_path: data/processed/tracks.parquet
+  logmel_dir: data/interim/logmel
+  norm_path: data/interim/m3_norm.json
+  sr: 22050
+  hop_length: 512
+  n_mels: 128
+  crop_seconds: 5.0              # -> 215 khung; cùng độ dài với cửa sổ M1 và truy vấn robustness
+  repeats_per_epoch: 1           # độ dài dataset = số bài x repeats (3C có thể tăng)
+  min_start_distance_frames: 0   # 0 = hai view của cùng bài được phép chồng nhau; >=215 = không chồng (ablation)
+  preload: false                 # true: nạp toàn bộ log-mel Train vào RAM (~1,6 GB float16) - nên bật trên Colab
+  norm_seed: 42                  # seed riêng cho thống kê chuẩn hóa (không đổi theo seed huấn luyện)
+  norm_stats:
+    max_tracks: 500
+    crops_per_track: 4
+
+# Họ augmentation (miền log-mel dB). KHÔNG có mix/overlay/codec: giữ ra khỏi huấn luyện (ISSUE-05).
+# Thêm các khóa đó vào đây sẽ báo lỗi. p = 0 hoặc xóa khóa = tắt (dùng cho ablation).
+augment:
+  time_warp:            # xấp xỉ tempo: đọc khung nguồn theo tốc độ `rate`
+    p: 0.5
+    rate_min: 0.85
+    rate_max: 1.15
+  freq_warp:            # xấp xỉ pitch: co giãn trục mel theo tỷ số 2^(semitone/12)
+    p: 0.5
+    semitone_min: -2.5
+    semitone_max: 2.5
+  eq:                   # lowpass hoặc highpass Butterworth bậc 4 (độ lợi cộng thêm theo dB trên từng dải mel)
+    p: 0.4
+    lowpass_hz: [2000.0, 6000.0]
+    highpass_hz: [200.0, 1000.0]
+    max_atten_db: 60.0
+  noise:                # nhiễu trắng cộng ở miền công suất theo SNR
+    p: 0.6
+    snr_db_min: 3.0
+    snr_db_max: 25.0
+    mode: additive      # additive: cộng công suất; coherent: thêm giao thoa pha (xem add_noise_coherent)
+    coherent_k: 1       # chỉ dùng khi mode=coherent; k lớn -> gần additive (chọn k bằng m3_noise_check)
+  gain_ramp:            # độ lợi thay đổi tuyến tính theo thời gian (độ lợi cố định bị triệt bởi chuẩn hóa crop)
+    p: 0.3
+    total_db_abs: 6.0
+  spec_mask:            # SpecAugment: che dải tần/khoảng thời gian bằng giá trị trung bình crop
+    p: 0.8
+    n_freq: 2
+    max_freq_width: 12
+    n_time: 2
+    max_time_width: 20
+
+# ---- 3B: mô hình và loss ----
+model:
+  channels: [16, 32, 64, 128]   # 4 khối residual; khối 2-4 giảm một nửa chiều tần số và thời gian
+  emb_dim: 128                  # embedding chuẩn hóa L2
+  pooling: freq_flat            # freq_flat: trung bình theo thời gian rồi giữ cấu trúc tần số; gap: trung bình toàn cục (ablation)
+
+loss:
+  temperature: 0.1              # NT-Xent; đề xuất, chỉnh trên Val ở 3E nếu cần
+
+# ---- 3B: mô hình và loss ----
+model:
+  channels: [16, 32, 64, 128]   # 4 stage; stage 2-4 giảm một nửa độ phân giải (stride 2)
+  blocks_per_stage: 1
+  embed_dim: 128
+  pool: freq_flatten            # freq_flatten: trung bình theo thời gian, giữ trục tần số rồi Linear; gap: trung bình cả hai trục (ablation)
+  dropout: 0.0
+
+loss:
+  name: nt_xent
+  temperature: 0.1
+
+# ---- 3C: huấn luyện ----
+train:
+  epochs: 60
+  batch_size: 128            # T4 15 GB: dự kiến vừa với AMP; giảm nếu hết bộ nhớ
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  warmup_epochs: 2
+  grad_clip: 5.0
+  amp: true                  # chỉ có tác dụng trên GPU
+  num_workers: 2             # Colab thường có 2 CPU
+  val_augment: true          # Val dùng cùng augmentation, cố định epoch=0 (xác định) -> loss Val đo độ bền
+  early_stop_patience: 12    # theo loss Val; 0 = tắt
+  checkpoint_dir: experiments/checkpoints

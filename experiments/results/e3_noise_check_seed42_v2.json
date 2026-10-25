@@ -1,0 +1,90 @@
+{
+  "n_queries": 200,
+  "clean": {
+    "recall_at_1": 1.0,
+    "tilt_db": -26.670732877254487
+  },
+  "recall_by_snr": {
+    "additive": {
+      "-10": 0.425,
+      "-5": 0.865,
+      "0": 0.98,
+      "5": 1.0,
+      "10": 1.0,
+      "15": 1.0,
+      "20": 1.0,
+      "25": 1.0
+    },
+    "coherent": {
+      "-10": 0.025,
+      "-5": 0.035,
+      "0": 0.06,
+      "5": 0.155,
+      "10": 0.245,
+      "15": 0.345,
+      "20": 0.62,
+      "25": 0.785
+    }
+  },
+  "conditions": {
+    "snr_5db": {
+      "nominal_snr_db": 5.0,
+      "real": {
+        "recall_at_1": 0.29,
+        "tilt_db": -6.918841786384583
+      },
+      "equivalent_synthetic_snr_db_by_tilt": 7.0,
+      "synthetic_same_nominal": {
+        "recall_at_1": 1.0,
+        "tilt_db": -6.240523960590362
+      },
+      "equivalent_snr_by_recall_additive": -10.0,
+      "synthetic_coherent_same_nominal": {
+        "recall_at_1": 0.155,
+        "tilt_db": -5.637170459032059
+      },
+      "equivalent_snr_by_recall_coherent": 10.0
+    },
+    "snr_10db": {
+      "nominal_snr_db": 10.0,
+      "real": {
+        "recall_at_1": 0.65,
+        "tilt_db": -9.937227920293807
+      },
+      "equivalent_synthetic_snr_db_by_tilt": 13.0,
+      "synthetic_same_nominal": {
+        "recall_at_1": 1.0,
+        "tilt_db": -8.818869183063507
+      },
+      "equivalent_snr_by_recall_additive": -5.0,
+      "synthetic_coherent_same_nominal": {
+        "recall_at_1": 0.245,
+        "tilt_db": -8.47707252562046
+      },
+      "equivalent_snr_by_recall_coherent": 20.0
+    },
+    "snr_20db": {
+      "nominal_snr_db": 20.0,
+      "real": {
+        "recall_at_1": 0.965,
+        "tilt_db": -16.01355934381485
+      },
+      "equivalent_synthetic_snr_db_by_tilt": 23.0,
+      "synthetic_same_nominal": {
+        "recall_at_1": 1.0,
+        "tilt_db": -14.49675256729126
+      },
+      "equivalent_snr_by_recall_additive": 0.0,
+      "synthetic_coherent_same_nominal": {
+        "recall_at_1": 0.62,
+        "tilt_db": -14.794295313358306
+      },
+      "equivalent_snr_by_recall_coherent": 25.0
+    }
+  },
+  "ckpt": "/content/drive/MyDrive/music-copyright-ai/checkpoints/m3_seed42/best.pt",
+  "tag": "seed42_v2",
+  "split": "val",
+  "seconds": 21.5,
+  "note": "Chỉ truy vấn known, chỉ mục 802 bài Val; chẩn đoán, không phải kết quả cuối."
+}

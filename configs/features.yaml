@@ -1,0 +1,17 @@
+# Tham số tiền xử lý khởi đầu (kế thừa tham số nhất quán của Nhóm 2; kiểm chứng ở ablation Phase 3).
+sample_rate: 22050
+mono: true
+n_fft: 2048
+hop_length: 512
+n_mels: 128
+crop_seconds_train: 5
+crop_seconds_query: [3, 5, 10]
+cache_dtype: float16
+clean:                     # ĐỀ XUẤT - chốt lại sau khi xem thống kê file bị loại ở EDA
+  min_seconds: 20.0        # clip FMA ~30 s; ngắn hơn 20 s bị loại
+  max_seconds: 30.0        # cắt phần thừa
+  silence_peak_threshold: 1.0e-4
+  checkpoint_every: 200
+paths:
+  logmel_dir: data/interim/logmel
+  clean_report: data/interim/clean_report.csv

@@ -1,0 +1,31 @@
+frozen: true
+created_utc: '2026-10-20T06:44:56.725349+00:00'
+primary_metric: macro_recall_at_1_robust
+rule: gain = max(0.02, 0.25*(1 - M1_val)); CI cặp đôi (bootstrap theo bài nguồn) của
+  hiệu M3-M1 có cận dưới > 0
+baselines_val_macro:
+  m0:
+    recall_at_1: 0.0
+    correct_accept_at_tau: 0.0
+  m1:
+    recall_at_1: 0.6221
+    correct_accept_at_tau: 0.1068
+  m2:
+    recall_at_1: 0.7898
+    correct_accept_at_tau: 0.7093
+tau_val:
+  m0: 0.999984
+  m1: 0.944159
+  m2: 0.034091
+targets:
+  m3_vs_m1_min_gain:
+    macro_recall_at_1: 0.0945
+    macro_correct_accept_at_fmr: 0.2233
+  paired_ci_lower_bound_gt: 0.0
+  max_fmr_at_operating_point: 0.01
+  min_macro_correct_accept_at_operating_point: 0.3301
+  min_macro_recall_at_1: 0.7166
+status_labels:
+- DAT
+- KHONG_DAT
+- CHUA_CHAY

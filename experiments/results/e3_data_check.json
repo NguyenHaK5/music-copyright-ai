@@ -1,0 +1,41 @@
+{
+  "split": "train",
+  "n_tracks": 4794,
+  "crop_frames": 215,
+  "active_ops": [
+    "time_warp",
+    "freq_warp",
+    "eq",
+    "noise",
+    "gain_ramp",
+    "spec_mask"
+  ],
+  "norm_stats": {
+    "std_after_crop_mean": 15.189896072421144,
+    "raw_min": -100.0,
+    "raw_p01": -63.3125,
+    "raw_p50": -8.65625,
+    "raw_p99": 23.6875,
+    "raw_max": 39.5625,
+    "n_tracks": 500,
+    "n_crops": 2000,
+    "seed": 42,
+    "crop_frames": 215
+  },
+  "n_checked": 200,
+  "ms_per_item": 13.0,
+  "view_mean": 0.0,
+  "view_std_mean": 0.729,
+  "view_std_range": [
+    0.3072,
+    2.1515
+  ],
+  "op_frequency_per_view": {
+    "eq": 0.378,
+    "freq_warp": 0.477,
+    "gain_ramp": 0.31,
+    "noise": 0.575,
+    "spec_mask": 0.78,
+    "time_warp": 0.5
+  }
+}

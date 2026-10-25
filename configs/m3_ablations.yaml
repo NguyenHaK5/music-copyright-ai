@@ -1,0 +1,54 @@
+# configs/m3_ablations.yaml - các biến thể ablation của M3 (Phase 3E). Dùng: --ablation <tên>
+# Mỗi biến thể = danh sách ghi đè 'khóa=giá_trị' lên configs/m3.yaml. Chạy cùng seed 42 để so với m3_seed42.
+# kind: ablation = tắt/đổi một thành phần để đo đóng góp; tuning = thử cải thiện (chỉ chọn trên Val).
+priority: [no_noise, no_pitch_tempo, gap, no_overlap]   # nhóm nên chạy trước (mỗi biến thể ~19 phút trên T4)
+ablations:
+  no_noise:
+    kind: ablation
+    desc: Tắt augmentation nhiễu (đo đóng góp của nó lên nhóm noise)
+    set: ["augment.noise.p=0"]
+  no_pitch_tempo:
+    kind: ablation
+    desc: Tắt freq_warp và time_warp (đo đóng góp lên nhóm pitch/tempo)
+    set: ["augment.freq_warp.p=0", "augment.time_warp.p=0"]
+  gap:
+    kind: ablation
+    desc: Trung bình cả hai trục thay vì giữ trục tần số (pool=gap)
+    set: ["model.pool=gap"]
+  no_overlap:
+    kind: ablation
+    desc: Hai view của một bài không được chồng nhau (min_start_distance_frames=215)
+    set: ["data.min_start_distance_frames=215"]
+  no_eq:
+    kind: ablation
+    desc: Tắt augmentation EQ
+    set: ["augment.eq.p=0"]
+  aug_none:
+    kind: ablation
+    desc: Không augmentation nào (chỉ crop ngẫu nhiên) - mốc sàn
+    set: ["augment.time_warp.p=0", "augment.freq_warp.p=0", "augment.eq.p=0", "augment.noise.p=0",
+          "augment.gain_ramp.p=0", "augment.spec_mask.p=0"]
+  noise_harder:
+    kind: tuning
+    desc: Nhiễu mạnh hơn và thường xuyên hơn (SNR -5..20 dB, p=0,8); thử khi nhóm noise yếu
+    set: ["augment.noise.p=0.8", "augment.noise.snr_db_min=-5.0", "augment.noise.snr_db_max=20.0"]
+  noise_coherent:
+    kind: tuning
+    desc: Nhiễu kết hợp (có giao thoa pha) thay cho cộng công suất; thử sau khi chẩn đoán nhiễu cho thấy nhiễu cộng quá dễ
+    set: ["augment.noise.mode=coherent"]
+  noise_coherent_harder:
+    kind: tuning
+    desc: Nhiễu kết hợp, SNR -5..20 dB, p=0,8
+    set: ["augment.noise.mode=coherent", "augment.noise.p=0.8", "augment.noise.snr_db_min=-5.0", "augment.noise.snr_db_max=20.0"]
+  noise_coherent_k2:
+    kind: tuning
+    desc: Nhiễu kết hợp trung bình 2 bin (trung gian giữa additive và coherent k=1); chọn k theo chẩn đoán nhiễu
+    set: ["augment.noise.mode=coherent", "augment.noise.coherent_k=2"]
+  noise_coherent_k4:
+    kind: tuning
+    desc: Nhiễu kết hợp trung bình 4 bin (trung gian giữa additive và coherent k=1); chọn k theo chẩn đoán nhiễu
+    set: ["augment.noise.mode=coherent", "augment.noise.coherent_k=4"]
+  noise_coherent_k8:
+    kind: tuning
+    desc: Nhiễu kết hợp trung bình 8 bin (trung gian giữa additive và coherent k=1); chọn k theo chẩn đoán nhiễu
+    set: ["augment.noise.mode=coherent", "augment.noise.coherent_k=8"]
