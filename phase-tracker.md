@@ -1,5 +1,5 @@
 # PHASE TRACKER
-Cập nhật lần cuối: 2026-10-26 · Trạng thái: **Phase 0-2 XONG. Phase 3 CHƯA đóng: cấu hình cuối `noise_coherent_k2` đã có seed 43, 44; thiếu file kết quả seed 42 trong bảng (n=2); cần Ô 21 + `freeze_phase3` rồi mới sang Phase 4. `configs/targets.yaml` đã khóa**
+Cập nhật lần cuối: 2026-10-27 · Trạng thái: **Phase 0-3 XONG (freeze ĐẠT, tag `phase3-final`). Phase 4 ĐANG LÀM: 4A/4B code+test xong, CHƯA chạm Test. `configs/targets.yaml` đã khóa**
 
 Quy ước: `XONG` = code + test pass (và đã chạy dữ liệu thật nếu cần); `CHƯA CHẠY` = chưa chạy trên dữ liệu thật; số liệu chỉ ghi khi có file trong `experiments/results/`.
 
@@ -8,8 +8,8 @@ Quy ước: `XONG` = code + test pass (và đã chạy dữ liệu thật nếu 
 | 0 | Review & thiết kế cuối | XONG | `PHASE0_Project_Review_Final_Architecture.md` |
 | 1 | Data Foundation | **XONG** | 32 passed, 0 skipped; leakage check PASS; notebook EDA đã chạy |
 | 2 | Baselines (M0, M1, M2) + truy vấn robustness + `targets.yaml` | **XONG** | 75 passed; M0/M1/M2 đã chạy Val (sạch và 17 cấu hình); targets đã khóa |
-| 3 | Deep model (M3) | **ĐANG LÀM** | 3A-3D XONG (cổng learning curve đã qua); 3E code+test xong, chờ chạy Colab. Không được cắt |
-| 4 | Evaluation & Robustness (Test một lần) | CHƯA BẮT ĐẦU | |
+| 3 | Deep model (M3) | **XONG** | Cấu hình cuối `noise_coherent_k2`, 3 seed; Val macro R@1 0,9615 ± 0,0030, nhận đúng@FMR 0,8845 ± 0,0129; `freeze_phase3` ĐẠT; tag `phase3-final` |
+| 4 | Evaluation & Robustness (Test một lần) | **ĐANG LÀM** | 4A/4B code+test xong, chưa chạy Test; 4C (lỗi, độ trễ), 4D (T2) chưa làm. Chi tiết: `PHASE4_INTEGRATION_GUIDE.md` |
 | 5 | Demo Streamlit | CHƯA BẮT ĐẦU | Bắt buộc (đã xác nhận) |
 | 6 | Báo cáo & bảo vệ | CHƯA BẮT ĐẦU | |
 
@@ -70,7 +70,7 @@ Cách xét ĐẠT/KHÔNG ĐẠT ở Phase 4 xem mục 10 của `PHASE2_INTEGRATI
 | 3E | `--ablation`/`--set`, `m3_ablations.yaml`, `summarize_m3.py`, `analysis/m3_noise_check.py`, notebook Ô 12-15 | local 127 passed | Chẩn đoán nhiễu **xong**; seed 43/44 và 4 ablation đang chạy Colab |
 | 3E-2 | `add_noise_coherent`, `noise.mode`, chẩn đoán mở rộng (lưới R@1 theo SNR) | local 128 passed | **Xong** (Ô 16): nhiễu thật nằm giữa additive (quá dễ) và coherent k=1 (quá khó) |
 | 3E-3 | `noise.coherent_k`, `--k` trong `m3_noise_check`, ablation `noise_coherent_k{2,4,8}` | local 130 passed | **Xong**: k=2 khớp nhiễu thật nhất; `noise_coherent_k2` seed 42: noise 0,673 -> 0,953, macro R@1 0,9580, nhận đúng@FMR 0,8754 |
-| 3F | Bộ tổng hợp nhiều seed; Ô 20 (seed 43, 44); `evaluation/freeze_phase3.py` (kiểm tra + SHA256 + `verify_freeze`); Ô 21 (khôi phục seed 42) | local 131 passed; sandbox 60 (mong đợi local 135) | seed 43, 44 **xong** (macro R@1 0,9636 / ~0,9628); seed 42 thiếu file kết quả; `freeze_phase3` CHƯA CHẠY |
+| 3F | Bộ tổng hợp nhiều seed; Ô 20-21; `evaluation/freeze_phase3.py` (kiểm tra + SHA256 + `verify_freeze`) | local 135 passed | **Xong**: 3 seed, `freeze_phase3` ĐẠT (36/37 dòng log dán, `ok=true`); Val 3 seed macro R@1 0,9615 ± 0,0030 |
 
 Chẩn đoán nhiễu v2 (seed 42, `e3_noise_check_seed42_v2.json`): R@1 nhiễu thật 0,290 / 0,650 / 0,965 (SNR 5/10/20 dB); nhiễu tổng hợp cộng công suất 1,000 ở cả ba mức (tương đương SNR thật khoảng -10/-5/0 dB, tức dưới dải huấn luyện 3-25 dB); nhiễu coherent k=1: 0,155 / 0,245 / 0,620 (quá khó). Nhiễu thật nằm giữa hai mô phỏng; giả thuyết giao thoa pha được ủng hộ định tính, chưa chứng minh.
 
@@ -101,9 +101,9 @@ Quyết định ở 3A: `gain_ramp` thay `gain` cố định; chuẩn hóa = tr�
 Cắt ngay: T3 (cổng đã FAIL), M4 (không dùng pretrained), M5, FastAPI. T2 giữ nếu sửa được `license_norm` (có bảng giá trị thật, việc nhỏ).
 
 ## Việc đang chờ bạn
-- Chép gói 3F-2 vào repo, `pytest -q` (mong đợi 135 passed); tar lại `src/`; Colab: Ô 3, rồi Ô 21 (khôi phục kết quả seed 42).
-- Local: tải `results/` về `experiments/results/`; đặt 3 checkpoint vào `experiments/runs/m3_abl_noise_coherent_k2_seed{42,43,44}/best.pt`; chạy `summarize_m3` rồi `freeze_phase3`; dán log. Phase 3 chỉ XONG khi in `ĐÓNG BĂNG ĐẠT`; sau đó `git commit` + tag `phase3-final`.
-- Không sửa `targets.yaml`. Sửa `license_norm.py` (T2): làm sau Phase 3, không chặn.
+- Chép gói Phase 4A/4B (chép ĐÈ `src/run_robustness.py`); bước 0 trong `PHASE4_INTEGRATION_GUIDE.md`: `pytest -q` (mong đợi 145 passed), kiểm `load_gains` in 0,0945 và 0,2233, `freeze_phase3` vẫn ĐẠT; rồi `git commit`.
+- Sau đó chạy Test đúng một lần theo mục 5 của guide Phase 4 (build, eval m0/m1/m2, eval m3 ba seed, `test_verdict`) và dán kết quả.
+- Không sửa `targets.yaml`. Sửa `license_norm.py` (T2) thuộc 4D.
 
 ## Vấn đề mở
 - Cổng `license_families_ge_min_tracks` FAIL do lỗi nhận dạng văn bản, không phải do dữ liệu thiếu giấy phép; chưa biết số nhóm thật.

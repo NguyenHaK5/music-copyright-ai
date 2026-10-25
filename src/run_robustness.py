@@ -3,7 +3,8 @@
     python -m src.run_robustness build --split val [--limit-sources 20]
     python -m src.run_robustness eval  --split val --models m0 m1 m2
 
-Chỉ cho phép split=val ở Phase 2. Test chỉ chạy một lần ở Phase 4 với tau lấy từ Val.
+Val: tự do. Test (Phase 4): chỉ với --final-test, sau khi đóng băng Phase 3 đạt; tau lấy từ Val; mỗi nhãn chỉ ghi
+kết quả Test một lần (xem src/evaluation/test_gate.py).
 """
 from __future__ import annotations
 
@@ -21,6 +22,7 @@ from src.common.config import load_config
 from src.common.paths import resolve
 from src.data.robust_queries import CONFIGS, GROUPS, build_robust_set, select_sources
 from src.evaluation.robustness import evaluate_robust
+from src.evaluation.test_gate import check_test_allowed, label_of, val_tau
 from src.features.cache import load_logmel
 from src.features.logmel import load_audio
 
@@ -82,7 +84,7 @@ def cmd_eval(a, cfg) -> int:
     out_dir = resolve(cfg["results_dir"])
     out_dir.mkdir(parents=True, exist_ok=True)
     for name in a.models:
-        label = f"{name}_{a.tag}" if (a.tag and name == "m3") else name
+        label = label_of(name, a.tag)
         model = build_model(name, cfg, tracks, cache_dir)
         model.build_index(index_ids, lambda t: load_logmel(cache_dir, t))
         by_cfg, t0 = {}, time.perf_counter()
@@ -93,10 +95,15 @@ def cmd_eval(a, cfg) -> int:
                              "source_ids": z["source_track_id"], "is_known": z["is_known"]}
         n_q = sum(len(d["source_ids"]) for d in by_cfg.values())
         o = cfg["openset"]
-        res = evaluate_robust(by_cfg, tau=None, max_fmr=o["max_fmr"])
+        fixed_tau = val_tau(out_dir, label) if a.split == "test" else None
+        res = evaluate_robust(by_cfg, tau=fixed_tau, max_fmr=o["max_fmr"])
         pq = {}
         for cname, c in res["configs"].items():
             pq[f"{cname}__hit1"], pq[f"{cname}__ca"], pq[f"{cname}__src"] = c["_hit1"], c["_ca"], c["_known_src"]
+            d = by_cfg[cname]
+            unk = ~np.asarray(d["is_known"], bool)
+            pq[f"{cname}__unk_top1"] = np.asarray(d["S"], float)[unk].max(1)       # để tính FMR kèm CI ở Phase 4
+            pq[f"{cname}__unk_src"] = np.asarray(d["source_ids"], int)[unk]
         np.savez(out_dir / f"e5_robust_{a.split}_{label}_perquery.npz", **pq)
         clean = {n: {k: v for k, v in c.items() if not k.startswith("_")} for n, c in res["configs"].items()}
         payload = {**res, "configs": clean, "model": name, "label": label,
@@ -104,8 +111,10 @@ def cmd_eval(a, cfg) -> int:
                    "created_utc": datetime.now(timezone.utc).isoformat(), "seed": cfg["robust"]["seed"],
                    "n_index_tracks": len(index_ids), "n_queries": n_q,
                    "skipped_configs": man["skipped"], "max_fmr_target": o["max_fmr"],
+                   "tau_source": f"val:e5_robust_val_{label}.json" if a.split == "test" else "chọn trên Val (unknown gộp)",
                    "timing_sec": {"score_all_queries": time.perf_counter() - t0},
-                   "note": "tau chọn trên Val từ unknown gộp mọi cấu hình; chưa phải kết quả cuối."}
+                   "note": ("KẾT QUẢ TEST (một lần): tau cố định từ Val." if a.split == "test"
+                            else "tau chọn trên Val từ unknown gộp mọi cấu hình; chưa phải kết quả cuối.")}
         p = out_dir / f"e5_robust_{a.split}_{label}.json"
         p.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
         m = res["macro"]
@@ -123,16 +132,25 @@ def main(argv=None) -> int:
     b = sub.add_parser("build")
     b.add_argument("--split", default="val")
     b.add_argument("--limit-sources", type=int, default=0)
+    b.add_argument("--final-test", action="store_true", help="bắt buộc khi --split test")
     e = sub.add_parser("eval")
     e.add_argument("--split", default="val")
     e.add_argument("--models", nargs="+", default=["m0", "m1", "m2"])
+    e.add_argument("--final-test", action="store_true", help="bắt buộc khi --split test")
     e.add_argument("--m3-ckpt", default=None, help="đường dẫn checkpoint M3 (best.pt) khi chạy m3")
     e.add_argument("--tag", default=None, help="hậu tố tên file kết quả của m3 (vd seed42)")
     a = ap.parse_args(argv)
-    if a.split != "val":
-        print("Từ chối: Test chỉ chạy một lần ở Phase 4 (--split val).", file=sys.stderr)
-        return 2
     cfg = load_config("baseline")
+    if a.split not in ("val", "test"):
+        print(f"Từ chối: split {a.split!r} không hợp lệ (val hoặc test).", file=sys.stderr)
+        return 2
+    errs = check_test_allowed(a.split, a.cmd, getattr(a, "final_test", False), getattr(a, "models", []),
+                              getattr(a, "tag", None), resolve(cfg["results_dir"]),
+                              resolve("experiments/results/e3_final_freeze.json"),
+                              runs_dir=None, config_dir=None, robust_dir=resolve(cfg["robust"]["dir"]))
+    if errs:
+        print("TỪ CHỐI chạy Test:\n - " + "\n - ".join(errs), file=sys.stderr)
+        return 2
     if a.cmd == "eval" and a.m3_ckpt:
         cfg["m3"] = {**(cfg.get("m3") or {}), "ckpt": a.m3_ckpt}
     return cmd_build(a, cfg) if a.cmd == "build" else cmd_eval(a, cfg)

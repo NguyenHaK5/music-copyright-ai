@@ -1,5 +1,5 @@
 # PHASE 3 - INTEGRATION GUIDE (M3: CNN embedding + học tương phản)
-Cập nhật: 2026-10-26 · **Phase 3 CHƯA đóng**: cấu hình cuối `noise_coherent_k2` đã có seed 43, 44; bảng tổng hợp mới chỉ có n=2 seed vì thiếu file kết quả seed 42 (mục 20). Cần Ô 21, đóng băng bằng `freeze_phase3`, rồi mới sang Phase 4.
+Cập nhật: 2026-10-27 · **Phase 3 XONG**: `freeze_phase3` ĐẠT, cấu hình cuối `noise_coherent_k2` 3 seed (Val macro R@1 0,9615 ± 0,0030; nhận đúng@FMR 0,8845 ± 0,0129); tag `phase3-final`. Phase 4 bắt đầu ở `PHASE4_INTEGRATION_GUIDE.md`.
 
 ## 1. Kế hoạch chia phần
 | Phần | Nội dung | Trạng thái |
@@ -12,7 +12,7 @@ Cập nhật: 2026-10-26 · **Phase 3 CHƯA đóng**: cấu hình cuối `noise_
 | 3E | 3 seed, ablation, chẩn đoán nhiễu, chốt Phase 3 | Code + test xong; chẩn đoán nhiễu đã chạy; seed/ablation đang chạy Colab |
 | 3E-2 | Mô phỏng nhiễu kết hợp (`noise.mode: coherent`) và chẩn đoán mở rộng | **XONG** (128 passed local; Ô 16 đã chạy) |
 | 3E-3 | Hiệu chuẩn `noise.coherent_k` theo nhiễu thật, huấn luyện biến thể | **XONG** (130 passed local; Ô 18-19 đã chạy): k=2 được chọn |
-| 3F | Chốt cấu hình cuối: seed 43, 44 của `noise_coherent_k2`, tổng hợp 3 seed | Code (tổng hợp nhiều seed) + test xong; chờ chạy Ô 20 |
+| 3F | Chốt cấu hình cuối: 3 seed của `noise_coherent_k2`, tổng hợp, đóng băng | **XONG** (135 passed local; `freeze_phase3` ĐẠT; tag `phase3-final`) |
 
 Cổng: có learning curve đầu tiên vào ngày 6 của lịch rút gọn; không có thì cắt mọi thứ phụ để dồn cho M3. Bốn quyết định thiết kế (mục 11 của `PHASE2_INTEGRATION_GUIDE.md`) đã được bạn xác nhận.
 
@@ -458,3 +458,19 @@ Cấu hình cuối cố định = `noise_coherent_k2`, `best.pt` của 3 seed; `
 Giới hạn: công cụ chỉ chứng minh các file hiện tại khớp lúc đóng băng, không chứng minh `targets.yaml` giống hệt bản đã khóa ở Phase 2 (mình không có bản đó); hãy `git commit` và gắn tag `phase3-final` ngay sau khi đóng băng đạt.
 
 **Quyết định nhất quán cho báo cáo (không đổi):** cấu hình cuối chọn theo quy tắc đặt trước; k chọn bằng truy vấn nhiễu thật của Val nên độ bền nhiễu chỉ kết luận trên Test; `overlay` (0,75-0,78) là hạn chế đã biết.
+
+## 21. Chốt Phase 3 (kết quả đóng băng)
+Nguồn: log `freeze_phase3` và `m3_val_summary.md` do bạn chạy. `pytest -q` local = 135 passed.
+
+**Đóng băng đạt:** mọi mục PASS, `e3_final_freeze.json` ghi `ok = true`. Một chi tiết nhỏ: log bạn dán có 36 dòng PASS, còn công cụ tạo ra 37 mục kiểm tra; thiếu dòng "seed43: đủ 7 nhóm, không bỏ cấu hình" (seed 42 và 44 đều có). Vì `ok` chỉ bằng true khi mọi mục đạt và bộ tổng hợp thấy đủ 3 seed nên mình xem đây là dòng bị rơi khi dán, không phải kết quả thiếu; nếu muốn chắc, đếm `len(checks)` trong `e3_final_freeze.json` (mong đợi 37, tất cả `ok: true`).
+
+**Cấu hình cuối trên Val (3 seed, mean ± std; seed 42/43/44):**
+| | cut | codec | noise | eq | pitch | tempo | overlay | macro R@1 | macro nhận đúng@FMR |
+|---|---|---|---|---|---|---|---|---|---|
+| M1 | 0,987 | 0,980 | 0,183 | 0,165 | 0,532 | 0,968 | 0,540 | 0,6221 | 0,1068 |
+| M2 | 1,000 | 1,000 | 0,995 | 1,000 | 0,056 | 0,508 | 0,970 | 0,7898 | 0,7093 |
+| M3 gốc (3 seed) | 1,000 | 1,000 | 0,673 | 0,992 | 0,996 | 0,998 | 0,752 | 0,9158 ± 0,0056 | 0,8243 ± 0,0122 |
+| **M3 `noise_coherent_k2` (3 seed)** | 1,000 | 1,000 | **0,968** | 0,990 | 0,998 | 1,000 | 0,775 | **0,9615 ± 0,0030** | **0,8845 ± 0,0129** |
+Số chính thức khớp ước tính trước đó (0,9615 ± 0,0030; 0,8845 ± 0,0128). Mức cải thiện so với cấu hình gốc: macro R@1 +0,046, nhận đúng@FMR +0,060, noise +0,295; không nhóm nào tụt đáng kể (eq -0,002).
+
+**Hạn chế đưa vào báo cáo:** k chọn bằng truy vấn nhiễu thật của Val (độ bền nhiễu chỉ kết luận trên Test); `overlay` 0,775 so với M2 0,970; bốn vòng tuning trên Val; ablation một seed; Val chỉ 200 bài nguồn mỗi loại. Bài học đáng ghi: cấu hình augmentation nhiễu cộng công suất cho R@1 = 1,000 trên nhiễu tổng hợp nhưng 0,29-0,965 trên nhiễu thật; phải kiểm chứng augmentation bằng dữ liệu biến đổi thật.
