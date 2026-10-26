@@ -1,0 +1,34 @@
+# configs/license_rules.yaml - bảng luật giấy phép T2 (Phase 4D). Có version; mỗi luật có test đơn vị.
+# Lớp luật chỉ mô tả GIẤY PHÉP CỦA BẢN GHI (recording) theo metadata; KHÔNG kết luận quyền đối với tác phẩm (composition)
+# và KHÔNG phải kết luận pháp lý. Chỉ chạy khi nhãn nhận diện là THUỘC_DANH_MỤC.
+version: 2    # v2: thêm Public Domain trơn (khai báo metadata) và Art Libre (Free Art License)
+result_open: "Giấy phép mở (kèm điều kiện)"
+result_unknown: "UNKNOWN – cần xác minh"
+disclaimer: >-
+  Mô tả giấy phép theo metadata của bản ghi, không phải kết luận pháp lý và không bao gồm quyền đối với tác phẩm
+  (tác giả, nhà xuất bản). Cần xác minh với chủ thể quyền trước khi sử dụng.
+conditions:
+  by: "Ghi công tác giả (Attribution)"
+  nc: "Chỉ dùng phi thương mại (NonCommercial)"
+  nd: "Không tạo tác phẩm phái sinh (NoDerivatives)"
+  sa: "Phải chia sẻ tương tự (ShareAlike)"
+commercial_use:
+  allowed: "Cho phép (kèm điều kiện còn lại)"
+  not_allowed: "Không cho phép (NC)"
+derivatives:
+  allowed: "Cho phép"
+  not_allowed: "Không cho phép (ND)"
+  share_alike: "Cho phép, phải chia sẻ tương tự (SA)"
+special:
+  cc0:
+    label: "CC0 (miễn trừ bản quyền do người nắm quyền tuyên bố)"
+    conditions: []
+  pdm:
+    label: "Public Domain Mark (đánh dấu phạm vi công cộng, không phải giấy phép)"
+    conditions: []
+  pd_claim:
+    label: "Phạm vi công cộng (theo khai báo của metadata, cần xác minh)"
+    conditions: []
+  free_art:
+    label: "Free Art License"
+    conditions: ["Ghi công tác giả (Attribution)", "Phải chia sẻ tương tự (ShareAlike)"]

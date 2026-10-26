@@ -1,5 +1,5 @@
 # PHASE TRACKER
-Cập nhật lần cuối: 2026-10-27 · Trạng thái: **Phase 0-3 XONG (freeze ĐẠT, tag `phase3-final`). Phase 4 ĐANG LÀM: 4A/4B code+test xong, CHƯA chạm Test. `configs/targets.yaml` đã khóa**
+Cập nhật lần cuối: 2026-10-29 · Trạng thái: **Phase 0-3 XONG. Phase 4 XONG về nội dung (Test ĐẠT; 4C, 4D đã chạy), chờ bạn chép bản vá luật giấy phép v2 và tag `phase4-final`. Tiếp theo Phase 5 (demo). `configs/targets.yaml` đã khóa**
 
 Quy ước: `XONG` = code + test pass (và đã chạy dữ liệu thật nếu cần); `CHƯA CHẠY` = chưa chạy trên dữ liệu thật; số liệu chỉ ghi khi có file trong `experiments/results/`.
 
@@ -9,7 +9,7 @@ Quy ước: `XONG` = code + test pass (và đã chạy dữ liệu thật nếu 
 | 1 | Data Foundation | **XONG** | 32 passed, 0 skipped; leakage check PASS; notebook EDA đã chạy |
 | 2 | Baselines (M0, M1, M2) + truy vấn robustness + `targets.yaml` | **XONG** | 75 passed; M0/M1/M2 đã chạy Val (sạch và 17 cấu hình); targets đã khóa |
 | 3 | Deep model (M3) | **XONG** | Cấu hình cuối `noise_coherent_k2`, 3 seed; Val macro R@1 0,9615 ± 0,0030, nhận đúng@FMR 0,8845 ± 0,0129; `freeze_phase3` ĐẠT; tag `phase3-final` |
-| 4 | Evaluation & Robustness (Test một lần) | **ĐANG LÀM** | 4A/4B code+test xong, chưa chạy Test; 4C (lỗi, độ trễ), 4D (T2) chưa làm. Chi tiết: `PHASE4_INTEGRATION_GUIDE.md` |
+| 4 | Evaluation & Robustness (Test một lần) | **XONG** (chờ tag) | Test ĐẠT cả chỉ số chính và phụ; 4C, 4D đã chạy; lệch giao thức: Test 200+200 bài nguồn. Chi tiết: `PHASE4_INTEGRATION_GUIDE.md` |
 | 5 | Demo Streamlit | CHƯA BẮT ĐẦU | Bắt buộc (đã xác nhận) |
 | 6 | Báo cáo & bảo vệ | CHƯA BẮT ĐẦU | |
 
@@ -90,6 +90,22 @@ Quyết định ở 3C: Val dùng cùng augmentation (epoch cố định); chọ
 Quyết định ở 3B: `pool: freq_flatten`; nhiệt độ NT-Xent 0,1.
 Quyết định ở 3A: `gain_ramp` thay `gain` cố định; chuẩn hóa = trừ trung bình crop, chia std toàn cục (từ bài Train).
 
+## Phase 4 (đang làm) - chi tiết ở `PHASE4_INTEGRATION_GUIDE.md`
+### Kết quả Test (một lần; tau cố định từ Val; nguồn `e4_test_verdict.json`)
+| Mô hình | macro R@1 | macro nhận đúng@FMR | noise | overlay | pitch | tempo | FMR gộp [CI95] |
+|---|---|---|---|---|---|---|---|
+| M1 | 0,5939 | 0,0965 | 0,152 | 0,525 | 0,435 | 0,975 | 0,0176 [0,0097; 0,0279] |
+| M2 | 0,7883 | 0,7137 | 0,997 | 0,980 | 0,044 | 0,497 | 0,0059 [0,0032; 0,0088] |
+| **M3 (3 seed)** | **0,9635 ± 0,0037** | **0,8832 ± 0,0129** | 0,971 | 0,787 | 0,998 | 1,000 | 0,0099 |
+Kết luận theo quy tắc đặt trước: macro R@1 hiệu M3 - M1 = +0,3696 [+0,3495; +0,3883] so với gain 0,0945: **ĐẠT**; macro nhận đúng@FMR +0,7867 [+0,7635; +0,8102] so với gain 0,2233: **ĐẠT** (cả 3 seed riêng lẻ đều đạt). Số Test khớp số Val (M3 Val 0,9615; nhóm noise Test 0,971 là bằng chứng độc lập cho nhiễu coherent).
+
+| Phần | Nội dung | Test | Chạy dữ liệu thật |
+|---|---|---|---|
+| 4A | `test_gate.py`, vá `run_robustness.py` (`--final-test`, tau Val, lưu unknown top-1) | local 145 passed | **Xong** (Test chạy một lần) |
+| 4B | `test_verdict.py` (bootstrap cặp đôi, FMR kèm CI, bảng chính) | cùng gói | **Xong**: ĐẠT |
+| 4C | `error_analysis.py`, `measure_cost.py` | 4 test | **Xong**: Val->Test mọi cấu hình lệch <= 0,012; M3 yếu nhất overlay_5db 0,787, snr_5db 0,930 (thất bại chủ yếu là từ chối); chỉ mục M3 4,1 MB, 13 ms/truy vấn CPU |
+| 4D | `src/rights/license_rules.py`, `configs/license_rules.yaml` (v2) | 33 test (local mong đợi 182) | **Xong**: độ phủ 8.000 bài, UNKNOWN 63 -> 17 sau vá v2; khoảng 82% bài có điều kiện NC |
+
 ## Lịch rút gọn (còn 2 tuần)
 | Ngày | Nội dung | Trạng thái |
 |---|---|---|
@@ -101,9 +117,9 @@ Quyết định ở 3A: `gain_ramp` thay `gain` cố định; chuẩn hóa = tr�
 Cắt ngay: T3 (cổng đã FAIL), M4 (không dùng pretrained), M5, FastAPI. T2 giữ nếu sửa được `license_norm` (có bảng giá trị thật, việc nhỏ).
 
 ## Việc đang chờ bạn
-- Chép gói Phase 4A/4B (chép ĐÈ `src/run_robustness.py`); bước 0 trong `PHASE4_INTEGRATION_GUIDE.md`: `pytest -q` (mong đợi 145 passed), kiểm `load_gains` in 0,0945 và 0,2233, `freeze_phase3` vẫn ĐẠT; rồi `git commit`.
-- Sau đó chạy Test đúng một lần theo mục 5 của guide Phase 4 (build, eval m0/m1/m2, eval m3 ba seed, `test_verdict`) và dán kết quả.
-- Không sửa `targets.yaml`. Sửa `license_norm.py` (T2) thuộc 4D.
+- Chép bản vá luật giấy phép v2 (3 file), `pytest -q` (mong đợi 182 passed), chạy lại `python -m src.rights.license_rules` (mong đợi UNKNOWN khoảng 17), `git commit`, tag `phase4-final`.
+- Phase 5 (demo Streamlit): dán nội dung `src/features/logmel.py`, `src/data/clean.py` và `src/features/cache.py` để mình nối đúng giao diện (đọc audio, chuẩn hóa, log-mel) thay vì đoán chữ ký hàm.
+- Không sửa `targets.yaml`.
 
 ## Vấn đề mở
 - Cổng `license_families_ge_min_tracks` FAIL do lỗi nhận dạng văn bản, không phải do dữ liệu thiếu giấy phép; chưa biết số nhóm thật.
@@ -119,3 +135,6 @@ Cắt ngay: T3 (cổng đã FAIL), M4 (không dùng pretrained), M5, FastAPI. T2
 - `overlay` còn 0,75-0,77 (M2 0,970): hạn chế đã biết, họ giữ ra khỏi huấn luyện; M5 (M2+M3) tùy chọn.
 - Bốn vòng tuning trên Val; đây là vòng cuối, không tuning thêm trước Test.
 - Val chỉ 200 bài nguồn mỗi loại và một seed: đừng diễn giải chênh lệch vài điểm % giữa các cấu hình riêng lẻ.
+- Lệch giao thức Phase 4: bộ truy vấn Test dựng với 200+200 bài nguồn (kế hoạch 400+400) và có thể không qua cổng `--final-test`; không dựng lại (phá nguyên tắc một lần); không đổi chiều kết luận (cận dưới CI +0,349 so với gain 0,0945). Ghi trong hạn chế báo cáo.
+- FMR trên Test với tau Val: M1 1,76% (vượt mục tiêu 1%), M3 0,99% (CI seed 43 tới 2,7%): tau Val không bảo đảm FMR trên dữ liệu mới.
+- `overlay`: M3 0,787 so với M2 0,980 trên Test; hướng M5 (M2+M3) chưa làm.
