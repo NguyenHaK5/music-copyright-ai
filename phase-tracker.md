@@ -1,5 +1,5 @@
 # PHASE TRACKER
-Cập nhật lần cuối: 2026-10-29 · Trạng thái: **Phase 0-3 XONG. Phase 4 XONG về nội dung (Test ĐẠT; 4C, 4D đã chạy), chờ bạn chép bản vá luật giấy phép v2 và tag `phase4-final`. Tiếp theo Phase 5 (demo). `configs/targets.yaml` đã khóa**
+Cập nhật lần cuối: 2026-10-30 · Trạng thái: **Phase 0-4 XONG (tag `phase4-final`; Test ĐẠT). Phase 5 (demo) ĐANG LÀM: code+test xong, chờ chạy trên dữ liệu thật. `configs/targets.yaml` đã khóa**
 
 Quy ước: `XONG` = code + test pass (và đã chạy dữ liệu thật nếu cần); `CHƯA CHẠY` = chưa chạy trên dữ liệu thật; số liệu chỉ ghi khi có file trong `experiments/results/`.
 
@@ -9,8 +9,8 @@ Quy ước: `XONG` = code + test pass (và đã chạy dữ liệu thật nếu 
 | 1 | Data Foundation | **XONG** | 32 passed, 0 skipped; leakage check PASS; notebook EDA đã chạy |
 | 2 | Baselines (M0, M1, M2) + truy vấn robustness + `targets.yaml` | **XONG** | 75 passed; M0/M1/M2 đã chạy Val (sạch và 17 cấu hình); targets đã khóa |
 | 3 | Deep model (M3) | **XONG** | Cấu hình cuối `noise_coherent_k2`, 3 seed; Val macro R@1 0,9615 ± 0,0030, nhận đúng@FMR 0,8845 ± 0,0129; `freeze_phase3` ĐẠT; tag `phase3-final` |
-| 4 | Evaluation & Robustness (Test một lần) | **XONG** (chờ tag) | Test ĐẠT cả chỉ số chính và phụ; 4C, 4D đã chạy; lệch giao thức: Test 200+200 bài nguồn. Chi tiết: `PHASE4_INTEGRATION_GUIDE.md` |
-| 5 | Demo Streamlit | CHƯA BẮT ĐẦU | Bắt buộc (đã xác nhận) |
+| 4 | Evaluation & Robustness (Test một lần) | **XONG** | Test ĐẠT cả chỉ số chính và phụ; 4C, 4D đã chạy; luật giấy phép v2; tag `phase4-final`. Chi tiết: `PHASE4_INTEGRATION_GUIDE.md` |
+| 5 | Demo Streamlit | **ĐANG LÀM** | Code+test xong (13 test mới); chờ chạy `calibrate_demo`, `make_demo_samples`, `smoke_demo`, giao diện. Chi tiết: `PHASE5_INTEGRATION_GUIDE.md` |
 | 6 | Báo cáo & bảo vệ | CHƯA BẮT ĐẦU | |
 
 ## Phase 1 (đã xong) - số liệu thật, nguồn: `experiments/results/`
@@ -117,8 +117,9 @@ Kết luận theo quy tắc đặt trước: macro R@1 hiệu M3 - M1 = +0,3696 
 Cắt ngay: T3 (cổng đã FAIL), M4 (không dùng pretrained), M5, FastAPI. T2 giữ nếu sửa được `license_norm` (có bảng giá trị thật, việc nhỏ).
 
 ## Việc đang chờ bạn
-- Chép bản vá luật giấy phép v2 (3 file), `pytest -q` (mong đợi 182 passed), chạy lại `python -m src.rights.license_rules` (mong đợi UNKNOWN khoảng 17), `git commit`, tag `phase4-final`.
-- Phase 5 (demo Streamlit): dán nội dung `src/features/logmel.py`, `src/data/clean.py` và `src/features/cache.py` để mình nối đúng giao diện (đọc audio, chuẩn hóa, log-mel) thay vì đoán chữ ký hàm.
+- Chép gói Phase 5; `pip install streamlit` và ghim phiên bản vào `requirements.txt`; `pytest -q` (mong đợi 195 passed).
+- Chạy theo mục 4 của `PHASE5_INTEGRATION_GUIDE.md`: `calibrate_demo`, `make_demo_samples`, `smoke_demo`, `streamlit run src/app/streamlit_app.py`; dán log hai lệnh đầu và `e5_demo_calibration.json`; chụp ảnh các ca cho báo cáo.
+- Sau đó chốt Phase 5 (tag `phase5-final`) và sang Phase 6 (báo cáo, slide, README).
 - Không sửa `targets.yaml`.
 
 ## Vấn đề mở

@@ -1,0 +1,18 @@
+# configs/demo.yaml - cấu hình demo Streamlit (Phase 5). Mô hình = cấu hình cuối, seed tốt nhất trên VAL (seed 43: macro R@1 0,9636, nhận đúng@FMR 0,8992); theo thiết kế Phase 0, không chọn theo Test.
+model:
+  ckpt: experiments/runs/m3_abl_noise_coherent_k2_seed43/best.pt
+  device: null                       # null = tự chọn (cuda nếu có)
+index:
+  split: test                        # chỉ mục demo = bài known của Test (800 bài), như thiết kế Phase 0
+  role: known
+  cache_path: data/interim/demo_index.npz   # lưu chỉ mục để khởi động nhanh (khóa theo SHA256 checkpoint)
+calibration_path: experiments/results/e5_demo_calibration.json   # tau_high, tau_low do calibrate_demo sinh ra từ VAL
+upload:
+  max_mb: 20
+  allowed_ext: [".mp3", ".wav", ".flac", ".ogg", ".m4a"]
+  min_seconds: 3.0                   # ngắn hơn 3 s không đủ (độ dài ngắn nhất đã đánh giá)
+  query_seconds: 10.0                # chỉ phân tích tối đa 10 s (độ dài dài nhất đã đánh giá); file dài hơn lấy đoạn giữa
+  silence_peak: 1.0e-4
+decision:
+  top_k: 3
+samples_dir: demo_samples            # make_demo_samples ghi vào đây

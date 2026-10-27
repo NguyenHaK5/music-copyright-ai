@@ -1,0 +1,9 @@
+{
+  "known_666.wav": "THUỘC_DANH_MỤC",
+  "known_666_snr10.wav": "THUỘC_DANH_MỤC|KHÔNG_XÁC_ĐỊNH",
+  "unknown_148.wav": "NGOÀI_DANH_MỤC|KHÔNG_XÁC_ĐỊNH",
+  "too_short.wav": "too_short",
+  "silent.wav": "silent",
+  "broken.mp3": "decode_error|too_short",
+  "empty.wav": "empty"
+}

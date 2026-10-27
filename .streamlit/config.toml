@@ -1,0 +1,4 @@
+[server]
+maxUploadSize = 20          # MB; khớp configs/demo.yaml (upload.max_mb)
+[browser]
+gatherUsageStats = false

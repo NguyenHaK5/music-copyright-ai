@@ -1,0 +1,24 @@
+{
+  "tau_high": 0.7817346453666688,
+  "tau_low": 0.7817346453666688,
+  "note": "tau_low vượt tau_high; đặt bằng tau_high (không có vùng KHÔNG_XÁC_ĐỊNH)",
+  "known_correct": {
+    "n": 3337,
+    "frac_ge_tau_high": 0.9553491159724303,
+    "frac_in_uncertain": 0.0,
+    "frac_lt_tau_low": 0.04465088402756967
+  },
+  "unknown": {
+    "n": 3400,
+    "frac_ge_tau_high": 0.01,
+    "frac_in_uncertain": 0.0,
+    "frac_lt_tau_low": 0.99
+  },
+  "split": "val",
+  "model_label": "m3_abl_noise_coherent_k2_seed43",
+  "ckpt": "experiments/runs/m3_abl_noise_coherent_k2_seed43/best.pt",
+  "ckpt_sha256": "47dd2262961e",
+  "created_utc": "2026-10-27T19:19:12.382594+00:00",
+  "n_configs": 17,
+  "rule": "tau_high = tau Val (FMR gộp <= 1%); tau_low = phân vị 5% điểm top-1 của truy vấn known được nhận đúng"
+}

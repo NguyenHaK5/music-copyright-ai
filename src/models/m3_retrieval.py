@@ -39,6 +39,22 @@ class M3Retriever:
         self._offsets = np.array(offsets)
         self.index_size = int(n)
 
+    def export_index(self) -> dict:
+        """Chỉ mục đã dựng -> dict mảng numpy (để lưu .npz, nạp lại nhanh)."""
+        if self._W is None:
+            raise RuntimeError("Chưa build_index")
+        return {"W": self._W, "offsets": self._offsets, "track_ids": np.asarray(self.track_ids, dtype=np.int64),
+                "win": np.asarray(self.win), "hop": np.asarray(self.hop)}
+
+    def import_index(self, data) -> None:
+        """Nạp chỉ mục từ export_index (kiểm tra cửa sổ khớp cấu hình hiện tại)."""
+        if int(data["win"]) != self.win or int(data["hop"]) != self.hop:
+            raise ValueError("Chỉ mục lưu với cửa sổ khác cấu hình hiện tại")
+        self._W = np.asarray(data["W"], dtype=np.float32)
+        self._offsets = np.asarray(data["offsets"])
+        self.track_ids = [int(t) for t in np.asarray(data["track_ids"])]
+        self.index_size = int(len(self._W))
+
     def _embed_one(self, q: np.ndarray) -> np.ndarray:
         if self.query_mode == "windows" and q.shape[1] > self.win:
             z = self.enc.window_embeddings(q, self.win, self.hop).mean(0)
