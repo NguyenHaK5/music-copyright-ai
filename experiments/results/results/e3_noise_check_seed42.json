@@ -1,0 +1,50 @@
+{
+  "n_queries": 200,
+  "clean": {
+    "recall_at_1": 1.0,
+    "tilt_db": -26.670732877254487
+  },
+  "conditions": {
+    "snr_5db": {
+      "nominal_snr_db": 5.0,
+      "real": {
+        "recall_at_1": 0.29,
+        "tilt_db": -6.918841786384583
+      },
+      "synthetic_same_nominal": {
+        "recall_at_1": 1.0,
+        "tilt_db": -6.240523960590362
+      },
+      "equivalent_synthetic_snr_db_by_tilt": 7.0
+    },
+    "snr_10db": {
+      "nominal_snr_db": 10.0,
+      "real": {
+        "recall_at_1": 0.65,
+        "tilt_db": -9.937227920293807
+      },
+      "synthetic_same_nominal": {
+        "recall_at_1": 1.0,
+        "tilt_db": -8.818869183063507
+      },
+      "equivalent_synthetic_snr_db_by_tilt": 13.0
+    },
+    "snr_20db": {
+      "nominal_snr_db": 20.0,
+      "real": {
+        "recall_at_1": 0.965,
+        "tilt_db": -16.01355934381485
+      },
+      "synthetic_same_nominal": {
+        "recall_at_1": 1.0,
+        "tilt_db": -14.49675256729126
+      },
+      "equivalent_synthetic_snr_db_by_tilt": 23.0
+    }
+  },
+  "ckpt": "experiments/runs/m3_seed42/best.pt",
+  "tag": "seed42",
+  "split": "val",
+  "seconds": 124.3,
+  "note": "Chỉ truy vấn known, chỉ mục 802 bài Val; chẩn đoán, không phải kết quả cuối."
+}

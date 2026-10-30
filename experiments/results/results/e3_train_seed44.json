@@ -1,0 +1,94 @@
+{
+  "seed": 44,
+  "epochs_planned": 60,
+  "epochs_run": 60,
+  "stopped_early": false,
+  "best_epoch": 59,
+  "best_val_loss": 1.4056490571107214,
+  "best_val_acc": 0.7498438480792382,
+  "final_train_loss": 1.1089648974908364,
+  "final_val_loss": 1.406213302823769,
+  "n_params": 569520,
+  "norm_std": 15.189896072421144,
+  "batch_size": 128,
+  "steps_per_epoch": 37,
+  "device": "cuda",
+  "cuda_name": "Tesla T4",
+  "torch": "2.11.0+cu130",
+  "amp": true,
+  "total_seconds": 1072.9,
+  "split_used": [
+    "train",
+    "val"
+  ],
+  "test_touched": false,
+  "model": {
+    "channels": [
+      16,
+      32,
+      64,
+      128
+    ],
+    "blocks_per_stage": 1,
+    "embed_dim": 128,
+    "pool": "freq_flatten",
+    "dropout": 0.0
+  },
+  "loss": {
+    "name": "nt_xent",
+    "temperature": 0.1
+  },
+  "train": {
+    "epochs": 60,
+    "batch_size": 128,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "warmup_epochs": 2,
+    "grad_clip": 5.0,
+    "amp": true,
+    "num_workers": 2,
+    "val_augment": true,
+    "early_stop_patience": 12,
+    "checkpoint_dir": "experiments/checkpoints"
+  },
+  "augment": {
+    "time_warp": {
+      "p": 0.5,
+      "rate_min": 0.85,
+      "rate_max": 1.15
+    },
+    "freq_warp": {
+      "p": 0.5,
+      "semitone_min": -2.5,
+      "semitone_max": 2.5
+    },
+    "eq": {
+      "p": 0.4,
+      "lowpass_hz": [
+        2000.0,
+        6000.0
+      ],
+      "highpass_hz": [
+        200.0,
+        1000.0
+      ],
+      "max_atten_db": 60.0
+    },
+    "noise": {
+      "p": 0.6,
+      "snr_db_min": 3.0,
+      "snr_db_max": 25.0
+    },
+    "gain_ramp": {
+      "p": 0.3,
+      "total_db_abs": 6.0
+    },
+    "spec_mask": {
+      "p": 0.8,
+      "n_freq": 2,
+      "max_freq_width": 12,
+      "n_time": 2,
+      "max_time_width": 20
+    }
+  }
+}

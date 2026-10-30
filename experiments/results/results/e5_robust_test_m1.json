@@ -1,0 +1,249 @@
+{
+  "tau": 0.9441593885421754,
+  "configs": {
+    "crop_3s": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.965,
+      "mrr": 0.973224219458479,
+      "auc": 0.802725,
+      "eer": 0.265,
+      "correct_accept_at_tau": 0.13,
+      "fmr_at_tau": 0.005
+    },
+    "crop_5s": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.995,
+      "mrr": 0.9950892857142857,
+      "auc": 0.9113,
+      "eer": 0.18000000000000002,
+      "correct_accept_at_tau": 0.355,
+      "fmr_at_tau": 0.02
+    },
+    "crop_10s": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.99,
+      "mrr": 0.9918095238095239,
+      "auc": 0.92065,
+      "eer": 0.15500000000000003,
+      "correct_accept_at_tau": 0.365,
+      "fmr_at_tau": 0.03
+    },
+    "mp3_64k": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.92,
+      "mrr": 0.953828125,
+      "auc": 0.770525,
+      "eer": 0.31999999999999995,
+      "correct_accept_at_tau": 0.06,
+      "fmr_at_tau": 0.0
+    },
+    "mp3_128k": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.92,
+      "mrr": 0.9559114583333335,
+      "auc": 0.774775,
+      "eer": 0.31000000000000005,
+      "correct_accept_at_tau": 0.075,
+      "fmr_at_tau": 0.0
+    },
+    "snr_5db": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.04,
+      "mrr": 0.057955938016372846,
+      "auc": 0.5111,
+      "eer": 0.96,
+      "correct_accept_at_tau": 0.025,
+      "fmr_at_tau": 0.105
+    },
+    "snr_10db": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.075,
+      "mrr": 0.09790788330157314,
+      "auc": 0.504,
+      "eer": 0.925,
+      "correct_accept_at_tau": 0.05,
+      "fmr_at_tau": 0.06
+    },
+    "snr_20db": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.34,
+      "mrr": 0.39227079138119864,
+      "auc": 0.525825,
+      "eer": 0.7050000000000001,
+      "correct_accept_at_tau": 0.07,
+      "fmr_at_tau": 0.02
+    },
+    "eq_lowpass_3k": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.11,
+      "mrr": 0.1485630889671863,
+      "auc": 0.49855,
+      "eer": 0.895,
+      "correct_accept_at_tau": 0.0,
+      "fmr_at_tau": 0.0
+    },
+    "eq_highpass_500": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.225,
+      "mrr": 0.3041547118989763,
+      "auc": 0.5321,
+      "eer": 0.795,
+      "correct_accept_at_tau": 0.0,
+      "fmr_at_tau": 0.0
+    },
+    "pitch_p1": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.755,
+      "mrr": 0.8178141084092787,
+      "auc": 0.615,
+      "eer": 0.51,
+      "correct_accept_at_tau": 0.05,
+      "fmr_at_tau": 0.015
+    },
+    "pitch_m1": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.27,
+      "mrr": 0.41738253506204687,
+      "auc": 0.51625,
+      "eer": 0.755,
+      "correct_accept_at_tau": 0.005,
+      "fmr_at_tau": 0.0
+    },
+    "pitch_p2": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.62,
+      "mrr": 0.7094689260764032,
+      "auc": 0.5684,
+      "eer": 0.585,
+      "correct_accept_at_tau": 0.03,
+      "fmr_at_tau": 0.01
+    },
+    "pitch_m2": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.095,
+      "mrr": 0.17212397872016205,
+      "auc": 0.483525,
+      "eer": 0.915,
+      "correct_accept_at_tau": 0.0,
+      "fmr_at_tau": 0.0
+    },
+    "tempo_0.90": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.975,
+      "mrr": 0.9813124274099883,
+      "auc": 0.826925,
+      "eer": 0.265,
+      "correct_accept_at_tau": 0.215,
+      "fmr_at_tau": 0.01
+    },
+    "tempo_1.10": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.975,
+      "mrr": 0.9815178571428571,
+      "auc": 0.8221,
+      "eer": 0.28,
+      "correct_accept_at_tau": 0.195,
+      "fmr_at_tau": 0.005
+    },
+    "overlay_5db": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.525,
+      "mrr": 0.5720383648402221,
+      "auc": 0.58705,
+      "eer": 0.595,
+      "correct_accept_at_tau": 0.05,
+      "fmr_at_tau": 0.02
+    }
+  },
+  "groups": {
+    "cut": {
+      "recall_at_1": 0.9833333333333334,
+      "mrr": 0.9867076763274296,
+      "auc": 0.8782249999999999,
+      "correct_accept_at_tau": 0.2833333333333333,
+      "n_configs": 3
+    },
+    "codec": {
+      "recall_at_1": 0.92,
+      "mrr": 0.9548697916666667,
+      "auc": 0.7726500000000001,
+      "correct_accept_at_tau": 0.0675,
+      "n_configs": 2
+    },
+    "noise": {
+      "recall_at_1": 0.15166666666666667,
+      "mrr": 0.18271153756638156,
+      "auc": 0.5136416666666667,
+      "correct_accept_at_tau": 0.04833333333333334,
+      "n_configs": 3
+    },
+    "eq": {
+      "recall_at_1": 0.1675,
+      "mrr": 0.22635890043308132,
+      "auc": 0.515325,
+      "correct_accept_at_tau": 0.0,
+      "n_configs": 2
+    },
+    "pitch": {
+      "recall_at_1": 0.435,
+      "mrr": 0.5291973870669726,
+      "auc": 0.5457937500000001,
+      "correct_accept_at_tau": 0.021249999999999998,
+      "n_configs": 4
+    },
+    "tempo": {
+      "recall_at_1": 0.975,
+      "mrr": 0.9814151422764227,
+      "auc": 0.8245125,
+      "correct_accept_at_tau": 0.20500000000000002,
+      "n_configs": 2
+    },
+    "overlay": {
+      "recall_at_1": 0.525,
+      "mrr": 0.5720383648402221,
+      "auc": 0.58705,
+      "correct_accept_at_tau": 0.05,
+      "n_configs": 1
+    }
+  },
+  "macro": {
+    "recall_at_1": 0.5939285714285715,
+    "mrr": 0.633328400025311,
+    "auc": 0.6624568452380952,
+    "correct_accept_at_tau": 0.09648809523809525,
+    "n_groups": 7
+  },
+  "missing_groups": [],
+  "model": "m1",
+  "label": "m1",
+  "ckpt": null,
+  "split": "test",
+  "created_utc": "2026-10-25T13:08:55.034356+00:00",
+  "seed": 42,
+  "n_index_tracks": 800,
+  "n_queries": 6800,
+  "skipped_configs": {},
+  "max_fmr_target": 0.01,
+  "tau_source": "val:e5_robust_val_m1.json",
+  "timing_sec": {
+    "score_all_queries": 5.035869800005457
+  },
+  "note": "KẾT QUẢ TEST (một lần): tau cố định từ Val."
+}

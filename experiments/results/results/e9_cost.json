@@ -1,0 +1,58 @@
+{
+  "split": "val",
+  "n_index_tracks": 802,
+  "n_batch_queries": 200,
+  "machine": {
+    "platform": "Windows-10-10.0.19045-SP0",
+    "processor": "Intel64 Family 6 Model 126 Stepping 5, GenuineIntel",
+    "cpu_count": 8,
+    "python": "3.11.9",
+    "torch": "2.2.2+cpu",
+    "cuda": false,
+    "torch_threads": 4
+  },
+  "models": {
+    "m1": {
+      "build_index_sec": 12.123868699999548,
+      "single_query": {
+        "median_ms": 1.183649999802583,
+        "p95_ms": 1.3350450005418677,
+        "mean_ms": 1.2032060000456113,
+        "n": 50
+      },
+      "batch_ms_per_query": 0.36237549999896146,
+      "n_batch_queries": 200,
+      "index_bytes": 10784776,
+      "index_size_units": null,
+      "n_index_tracks": 802
+    },
+    "m2": {
+      "build_index_sec": 6.594708599999649,
+      "single_query": {
+        "median_ms": 2.6306000004296948,
+        "p95_ms": 3.3427100000608334,
+        "mean_ms": 2.6985180000701803,
+        "n": 50
+      },
+      "batch_ms_per_query": 2.7279665000014575,
+      "n_batch_queries": 200,
+      "index_bytes": 21330276,
+      "index_size_units": 1777523,
+      "n_index_tracks": 802
+    },
+    "m3": {
+      "build_index_sec": 68.66058179999982,
+      "single_query": {
+        "median_ms": 12.781850000010309,
+        "p95_ms": 14.160345000072994,
+        "mean_ms": 12.600109999984852,
+        "n": 50
+      },
+      "batch_ms_per_query": 11.70714400000179,
+      "n_batch_queries": 200,
+      "index_bytes": 4109448,
+      "index_size_units": 8020,
+      "n_index_tracks": 802
+    }
+  }
+}

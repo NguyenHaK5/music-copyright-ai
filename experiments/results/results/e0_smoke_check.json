@@ -1,0 +1,70 @@
+{
+  "created_utc": "2026-10-19T01:31:09.779869+00:00",
+  "tracks_csv": "C:\\Users\\Admin\\Downloads\\SIC\\PROJECT\\PHASE1\\music-copyright-ai\\data\\raw\\fma_metadata\\tracks.csv",
+  "subset": "small",
+  "gates": [
+    {
+      "gate": "artist_id_missing_rate",
+      "value": 0.0,
+      "threshold": 0.01,
+      "passed": true,
+      "action_if_failed": "Tự suy nhóm theo artist_name, ghi vào Data Card"
+    },
+    {
+      "gate": "n_artists",
+      "value": 2309,
+      "threshold": 300,
+      "passed": true,
+      "action_if_failed": "Thu nhỏ known/unknown hoặc thêm nguồn"
+    },
+    {
+      "gate": "min_artists_per_genre",
+      "value": 120,
+      "threshold": 20,
+      "passed": true,
+      "action_if_failed": "Unknown cùng thể loại khó đảm bảo: gộp/bỏ thể loại ít nghệ sĩ"
+    },
+    {
+      "gate": "license_families_ge_min_tracks",
+      "value": 0,
+      "threshold": 3,
+      "passed": false,
+      "action_if_failed": "Bỏ thí nghiệm T3 (không dừng dự án)"
+    },
+    {
+      "gate": "free_disk_gb",
+      "value": 77.3,
+      "threshold": 15,
+      "passed": true,
+      "action_if_failed": "Chỉ cache crop thay vì cả bài, hoặc dọn ổ đĩa"
+    }
+  ],
+  "summary": {
+    "n_tracks": 8000,
+    "n_artists": 2309,
+    "n_albums": 2464,
+    "tracks_per_artist": {
+      "min": 1,
+      "median": 1.0,
+      "max": 208
+    },
+    "genre_counts": {
+      "Hip-Hop": 1000,
+      "Pop": 1000,
+      "Folk": 1000,
+      "Experimental": 1000,
+      "Rock": 1000,
+      "International": 1000,
+      "Electronic": 1000,
+      "Instrumental": 1000
+    },
+    "license_family_counts": {
+      "unknown": 8000
+    },
+    "duration_sec": {
+      "min": 60.0,
+      "median": 215.0,
+      "max": 600.0
+    }
+  }
+}

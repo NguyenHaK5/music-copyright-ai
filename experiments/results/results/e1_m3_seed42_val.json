@@ -1,0 +1,76 @@
+{
+  "n_known_queries": 2406,
+  "n_unknown_queries": 2397,
+  "n_index_tracks": 802,
+  "recall_at_1": {
+    "value": 1.0,
+    "ci95": [
+      1.0,
+      1.0
+    ]
+  },
+  "recall_at_5": {
+    "value": 1.0,
+    "ci95": [
+      1.0,
+      1.0
+    ]
+  },
+  "recall_at_10": {
+    "value": 1.0,
+    "ci95": [
+      1.0,
+      1.0
+    ]
+  },
+  "mrr": {
+    "value": 1.0,
+    "ci95": [
+      1.0,
+      1.0
+    ]
+  },
+  "chance_recall_at_1": 0.0012468827930174563,
+  "roc_auc_known_vs_unknown": 0.9999545705337546,
+  "eer": {
+    "eer": 0.002498447248586896,
+    "tau": 0.8478127717971802,
+    "fmr": 0.0025031289111389237,
+    "fnmr": 0.0024937655860348684
+  },
+  "operating_point": {
+    "max_fmr_target": 0.01,
+    "max_loss_target": 0.05,
+    "tau_high": 0.8084445595741273,
+    "tau_low": 0.8084445595741273,
+    "fmr_at_tau_high": 0.009595327492699207,
+    "known_outcomes_at_tau_high": {
+      "correct_accept": 0.999168744804655,
+      "wrong_id": 0.0,
+      "rejected": 0.0008312551953449709
+    },
+    "labels_known": {
+      "THUỘC_DANH_MỤC": 2404,
+      "NGOÀI_DANH_MỤC": 2
+    },
+    "labels_unknown": {
+      "NGOÀI_DANH_MỤC": 2374,
+      "THUỘC_DANH_MỤC": 23
+    }
+  },
+  "model": "m3",
+  "label": "m3_seed42",
+  "ckpt": "experiments/runs/m3_seed42/best.pt",
+  "split": "val",
+  "query_type": "clean_crop",
+  "created_utc": "2026-10-22T21:38:47.856557+00:00",
+  "seed": 42,
+  "crop_sec": 5.0,
+  "timing_sec": {
+    "build_index": 80.9268755999999,
+    "score_all_queries": 55.7490772000001,
+    "score_per_query_ms": 11.607136622944015
+  },
+  "index_hashes": 8020,
+  "note": "Số trên Val dùng để chọn ngưỡng/mục tiêu; chưa phải kết quả cuối. Truy vấn là crop của clip đã index."
+}

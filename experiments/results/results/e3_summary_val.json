@@ -1,0 +1,634 @@
+{
+  "baselines": {
+    "m1": {
+      "macro_recall_at_1": 0.6221428571428572,
+      "macro_correct_accept": 0.10678571428571429,
+      "tau": 0.9441593885421754,
+      "group_recall_at_1": {
+        "cut": 0.9866666666666667,
+        "codec": 0.98,
+        "noise": 0.18333333333333335,
+        "eq": 0.16499999999999998,
+        "pitch": 0.5325,
+        "tempo": 0.9675,
+        "overlay": 0.54
+      },
+      "group_correct_accept": {
+        "cut": 0.315,
+        "codec": 0.05,
+        "noise": 0.065,
+        "eq": 0.01,
+        "pitch": 0.015,
+        "tempo": 0.2275,
+        "overlay": 0.065
+      }
+    },
+    "m2": {
+      "macro_recall_at_1": 0.7898214285714287,
+      "macro_correct_accept": 0.7092857142857143,
+      "tau": 0.03409091010689736,
+      "group_recall_at_1": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.995,
+        "eq": 1.0,
+        "pitch": 0.05625000000000001,
+        "tempo": 0.5075000000000001,
+        "overlay": 0.97
+      },
+      "group_correct_accept": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.985,
+        "eq": 1.0,
+        "pitch": 0.007500000000000001,
+        "tempo": 0.0425,
+        "overlay": 0.93
+      }
+    }
+  },
+  "m3_seeds": {
+    "42": {
+      "macro_recall_at_1": 0.9094642857142856,
+      "macro_correct_accept": 0.8102380952380951,
+      "tau": 0.7932533025741578,
+      "group_recall_at_1": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.6349999999999999,
+        "eq": 0.9875,
+        "pitch": 0.9962500000000001,
+        "tempo": 0.9975,
+        "overlay": 0.75
+      },
+      "group_correct_accept": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.39166666666666666,
+        "eq": 0.86,
+        "pitch": 0.9725,
+        "tempo": 0.9975,
+        "overlay": 0.45
+      }
+    },
+    "43": {
+      "macro_recall_at_1": 0.9175000000000001,
+      "macro_correct_accept": 0.8318452380952381,
+      "tau": 0.7836121320724488,
+      "group_recall_at_1": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.695,
+        "eq": 0.9924999999999999,
+        "pitch": 0.9950000000000001,
+        "tempo": 1.0,
+        "overlay": 0.74
+      },
+      "group_correct_accept": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.4466666666666666,
+        "eq": 0.9099999999999999,
+        "pitch": 0.98125,
+        "tempo": 1.0,
+        "overlay": 0.485
+      }
+    },
+    "44": {
+      "macro_recall_at_1": 0.9202976190476191,
+      "macro_correct_accept": 0.8308333333333334,
+      "tau": 0.781723439693451,
+      "group_recall_at_1": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.6883333333333334,
+        "eq": 0.995,
+        "pitch": 0.9962500000000001,
+        "tempo": 0.9975,
+        "overlay": 0.765
+      },
+      "group_correct_accept": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.4483333333333333,
+        "eq": 0.9099999999999999,
+        "pitch": 0.98,
+        "tempo": 0.9975,
+        "overlay": 0.48
+      }
+    }
+  },
+  "m3_mean_std": {
+    "n_seeds": 3,
+    "macro_recall_at_1": {
+      "mean": 0.9157539682539683,
+      "std": 0.00562376634662143
+    },
+    "macro_correct_accept": {
+      "mean": 0.8243055555555556,
+      "std": 0.01219327961006738
+    },
+    "group_recall_at_1": {
+      "cut": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "codec": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "noise": {
+        "mean": 0.6727777777777777,
+        "std": 0.032885885748775025
+      },
+      "eq": {
+        "mean": 0.9916666666666667,
+        "std": 0.0038188130791298337
+      },
+      "pitch": {
+        "mean": 0.9958333333333335,
+        "std": 0.0007216878364870169
+      },
+      "tempo": {
+        "mean": 0.9983333333333334,
+        "std": 0.0014433756729740337
+      },
+      "overlay": {
+        "mean": 0.7516666666666666,
+        "std": 0.012583057392117928
+      }
+    },
+    "group_correct_accept": {
+      "cut": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "codec": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "noise": {
+        "mean": 0.4288888888888889,
+        "std": 0.03224615969095876
+      },
+      "eq": {
+        "mean": 0.8933333333333332,
+        "std": 0.028867513459481253
+      },
+      "pitch": {
+        "mean": 0.9779166666666667,
+        "std": 0.00473242362150019
+      },
+      "tempo": {
+        "mean": 0.9983333333333334,
+        "std": 0.0014433756729740337
+      },
+      "overlay": {
+        "mean": 0.4716666666666667,
+        "std": 0.018929694486000896
+      }
+    }
+  },
+  "ablations": {
+    "gap": {
+      "seed": 42,
+      "macro_recall_at_1": 0.884047619047619,
+      "macro_correct_accept": 0.6557142857142858,
+      "tau": 0.8718398809432985,
+      "group_recall_at_1": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.6533333333333333,
+        "eq": 0.9625,
+        "pitch": 0.9675,
+        "tempo": 0.97,
+        "overlay": 0.635
+      },
+      "group_correct_accept": {
+        "cut": 0.9950000000000001,
+        "codec": 1.0,
+        "noise": 0.285,
+        "eq": 0.73,
+        "pitch": 0.6625,
+        "tempo": 0.6725,
+        "overlay": 0.245
+      },
+      "per_seed": {
+        "42": {
+          "macro_recall_at_1": 0.884047619047619,
+          "macro_correct_accept": 0.6557142857142858,
+          "tau": 0.8718398809432985,
+          "group_recall_at_1": {
+            "cut": 1.0,
+            "codec": 1.0,
+            "noise": 0.6533333333333333,
+            "eq": 0.9625,
+            "pitch": 0.9675,
+            "tempo": 0.97,
+            "overlay": 0.635
+          },
+          "group_correct_accept": {
+            "cut": 0.9950000000000001,
+            "codec": 1.0,
+            "noise": 0.285,
+            "eq": 0.73,
+            "pitch": 0.6625,
+            "tempo": 0.6725,
+            "overlay": 0.245
+          }
+        }
+      },
+      "delta_vs_seed_baseline": {
+        "macro_recall_at_1": -0.025416666666666643,
+        "macro_correct_accept": -0.15452380952380929,
+        "group_recall_at_1": {
+          "cut": 0.0,
+          "codec": 0.0,
+          "noise": 0.018333333333333424,
+          "eq": -0.025000000000000022,
+          "pitch": -0.028750000000000053,
+          "tempo": -0.02750000000000008,
+          "overlay": -0.11499999999999999
+        }
+      }
+    },
+    "no_noise": {
+      "seed": 42,
+      "macro_recall_at_1": 0.8683928571428572,
+      "macro_correct_accept": 0.7213095238095238,
+      "tau": 0.825358271598816,
+      "group_recall_at_1": {
+        "cut": 1.0,
+        "codec": 0.995,
+        "noise": 0.385,
+        "eq": 0.965,
+        "pitch": 0.98875,
+        "tempo": 0.995,
+        "overlay": 0.75
+      },
+      "group_correct_accept": {
+        "cut": 1.0,
+        "codec": 0.995,
+        "noise": 0.15166666666666667,
+        "eq": 0.7825,
+        "pitch": 0.85,
+        "tempo": 0.935,
+        "overlay": 0.335
+      },
+      "per_seed": {
+        "42": {
+          "macro_recall_at_1": 0.8683928571428572,
+          "macro_correct_accept": 0.7213095238095238,
+          "tau": 0.825358271598816,
+          "group_recall_at_1": {
+            "cut": 1.0,
+            "codec": 0.995,
+            "noise": 0.385,
+            "eq": 0.965,
+            "pitch": 0.98875,
+            "tempo": 0.995,
+            "overlay": 0.75
+          },
+          "group_correct_accept": {
+            "cut": 1.0,
+            "codec": 0.995,
+            "noise": 0.15166666666666667,
+            "eq": 0.7825,
+            "pitch": 0.85,
+            "tempo": 0.935,
+            "overlay": 0.335
+          }
+        }
+      },
+      "delta_vs_seed_baseline": {
+        "macro_recall_at_1": -0.041071428571428426,
+        "macro_correct_accept": -0.08892857142857125,
+        "group_recall_at_1": {
+          "cut": 0.0,
+          "codec": -0.0050000000000000044,
+          "noise": -0.2499999999999999,
+          "eq": -0.022500000000000075,
+          "pitch": -0.007500000000000062,
+          "tempo": -0.0025000000000000577,
+          "overlay": 0.0
+        }
+      }
+    },
+    "no_overlap": {
+      "seed": 42,
+      "macro_recall_at_1": 0.915952380952381,
+      "macro_correct_accept": 0.8055357142857142,
+      "tau": 0.8050013184547425,
+      "group_recall_at_1": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.6516666666666667,
+        "eq": 0.99,
+        "pitch": 0.9975,
+        "tempo": 0.9975,
+        "overlay": 0.775
+      },
+      "group_correct_accept": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.395,
+        "eq": 0.84,
+        "pitch": 0.9587500000000001,
+        "tempo": 0.995,
+        "overlay": 0.45
+      },
+      "per_seed": {
+        "42": {
+          "macro_recall_at_1": 0.915952380952381,
+          "macro_correct_accept": 0.8055357142857142,
+          "tau": 0.8050013184547425,
+          "group_recall_at_1": {
+            "cut": 1.0,
+            "codec": 1.0,
+            "noise": 0.6516666666666667,
+            "eq": 0.99,
+            "pitch": 0.9975,
+            "tempo": 0.9975,
+            "overlay": 0.775
+          },
+          "group_correct_accept": {
+            "cut": 1.0,
+            "codec": 1.0,
+            "noise": 0.395,
+            "eq": 0.84,
+            "pitch": 0.9587500000000001,
+            "tempo": 0.995,
+            "overlay": 0.45
+          }
+        }
+      },
+      "delta_vs_seed_baseline": {
+        "macro_recall_at_1": 0.006488095238095348,
+        "macro_correct_accept": -0.004702380952380847,
+        "group_recall_at_1": {
+          "cut": 0.0,
+          "codec": 0.0,
+          "noise": 0.01666666666666683,
+          "eq": 0.0024999999999999467,
+          "pitch": 0.0012499999999999734,
+          "tempo": 0.0,
+          "overlay": 0.025000000000000022
+        }
+      }
+    },
+    "no_pitch_tempo": {
+      "seed": 42,
+      "macro_recall_at_1": 0.8782738095238096,
+      "macro_correct_accept": 0.7235714285714286,
+      "tau": 0.7764430642127992,
+      "group_recall_at_1": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.8566666666666668,
+        "eq": 1.0,
+        "pitch": 0.41125,
+        "tempo": 1.0,
+        "overlay": 0.88
+      },
+      "group_correct_accept": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.57,
+        "eq": 0.9275,
+        "pitch": 0.0375,
+        "tempo": 1.0,
+        "overlay": 0.53
+      },
+      "per_seed": {
+        "42": {
+          "macro_recall_at_1": 0.8782738095238096,
+          "macro_correct_accept": 0.7235714285714286,
+          "tau": 0.7764430642127992,
+          "group_recall_at_1": {
+            "cut": 1.0,
+            "codec": 1.0,
+            "noise": 0.8566666666666668,
+            "eq": 1.0,
+            "pitch": 0.41125,
+            "tempo": 1.0,
+            "overlay": 0.88
+          },
+          "group_correct_accept": {
+            "cut": 1.0,
+            "codec": 1.0,
+            "noise": 0.57,
+            "eq": 0.9275,
+            "pitch": 0.0375,
+            "tempo": 1.0,
+            "overlay": 0.53
+          }
+        }
+      },
+      "delta_vs_seed_baseline": {
+        "macro_recall_at_1": -0.03119047619047599,
+        "macro_correct_accept": -0.08666666666666645,
+        "group_recall_at_1": {
+          "cut": 0.0,
+          "codec": 0.0,
+          "noise": 0.2216666666666669,
+          "eq": 0.012499999999999956,
+          "pitch": -0.5850000000000001,
+          "tempo": 0.0024999999999999467,
+          "overlay": 0.13
+        }
+      }
+    },
+    "noise_coherent_k2": {
+      "seed": 42,
+      "macro_recall_at_1": 0.9579761904761904,
+      "macro_correct_accept": 0.8754166666666666,
+      "tau": 0.7895689010620118,
+      "group_recall_at_1": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.9533333333333333,
+        "eq": 0.985,
+        "pitch": 0.9975,
+        "tempo": 1.0,
+        "overlay": 0.77
+      },
+      "group_correct_accept": {
+        "cut": 1.0,
+        "codec": 1.0,
+        "noise": 0.7816666666666666,
+        "eq": 0.87,
+        "pitch": 0.98125,
+        "tempo": 1.0,
+        "overlay": 0.495
+      },
+      "per_seed": {
+        "42": {
+          "macro_recall_at_1": 0.9579761904761904,
+          "macro_correct_accept": 0.8754166666666666,
+          "tau": 0.7895689010620118,
+          "group_recall_at_1": {
+            "cut": 1.0,
+            "codec": 1.0,
+            "noise": 0.9533333333333333,
+            "eq": 0.985,
+            "pitch": 0.9975,
+            "tempo": 1.0,
+            "overlay": 0.77
+          },
+          "group_correct_accept": {
+            "cut": 1.0,
+            "codec": 1.0,
+            "noise": 0.7816666666666666,
+            "eq": 0.87,
+            "pitch": 0.98125,
+            "tempo": 1.0,
+            "overlay": 0.495
+          }
+        },
+        "43": {
+          "macro_recall_at_1": 0.9635714285714286,
+          "macro_correct_accept": 0.8992261904761906,
+          "tau": 0.7817346453666688,
+          "group_recall_at_1": {
+            "cut": 1.0,
+            "codec": 1.0,
+            "noise": 0.98,
+            "eq": 0.9875,
+            "pitch": 0.9975,
+            "tempo": 1.0,
+            "overlay": 0.78
+          },
+          "group_correct_accept": {
+            "cut": 1.0,
+            "codec": 1.0,
+            "noise": 0.9133333333333334,
+            "eq": 0.895,
+            "pitch": 0.97625,
+            "tempo": 0.995,
+            "overlay": 0.515
+          }
+        },
+        "44": {
+          "macro_recall_at_1": 0.9628571428571429,
+          "macro_correct_accept": 0.8789285714285714,
+          "tau": 0.796809494495392,
+          "group_recall_at_1": {
+            "cut": 1.0,
+            "codec": 1.0,
+            "noise": 0.9700000000000001,
+            "eq": 0.9975,
+            "pitch": 0.9975,
+            "tempo": 1.0,
+            "overlay": 0.775
+          },
+          "group_correct_accept": {
+            "cut": 1.0,
+            "codec": 1.0,
+            "noise": 0.8649999999999999,
+            "eq": 0.88,
+            "pitch": 0.9550000000000001,
+            "tempo": 0.9975,
+            "overlay": 0.455
+          }
+        }
+      },
+      "delta_vs_seed_baseline": {
+        "macro_recall_at_1": 0.04851190476190481,
+        "macro_correct_accept": 0.06517857142857153,
+        "group_recall_at_1": {
+          "cut": 0.0,
+          "codec": 0.0,
+          "noise": 0.31833333333333336,
+          "eq": -0.0025000000000000577,
+          "pitch": 0.0012499999999999734,
+          "tempo": 0.0024999999999999467,
+          "overlay": 0.020000000000000018
+        }
+      },
+      "mean_std": {
+        "n_seeds": 3,
+        "macro_recall_at_1": {
+          "mean": 0.961468253968254,
+          "std": 0.0030452309591984107
+        },
+        "macro_correct_accept": {
+          "mean": 0.8845238095238095,
+          "std": 0.012853146424742659
+        },
+        "group_recall_at_1": {
+          "cut": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "codec": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "noise": {
+            "mean": 0.9677777777777777,
+            "std": 0.01347150628109131
+          },
+          "eq": {
+            "mean": 0.9900000000000001,
+            "std": 0.006614378277661504
+          },
+          "pitch": {
+            "mean": 0.9975,
+            "std": 0.0
+          },
+          "tempo": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "overlay": {
+            "mean": 0.775,
+            "std": 0.0050000000000000044
+          }
+        },
+        "group_correct_accept": {
+          "cut": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "codec": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "noise": {
+            "mean": 0.8533333333333334,
+            "std": 0.06660413734229369
+          },
+          "eq": {
+            "mean": 0.8816666666666667,
+            "std": 0.012583057392117928
+          },
+          "pitch": {
+            "mean": 0.9708333333333333,
+            "std": 0.013938107236398043
+          },
+          "tempo": {
+            "mean": 0.9975,
+            "std": 0.0025000000000000022
+          },
+          "overlay": {
+            "mean": 0.48833333333333334,
+            "std": 0.03055050463303893
+          }
+        }
+      },
+      "delta_mean_vs_baseline_mean": {
+        "macro_recall_at_1": 0.04571428571428571,
+        "macro_correct_accept": 0.060218253968253865,
+        "group_recall_at_1": {
+          "cut": 0.0,
+          "codec": 0.0,
+          "noise": 0.29500000000000004,
+          "eq": -0.0016666666666665941,
+          "pitch": 0.0016666666666665941,
+          "tempo": 0.0016666666666665941,
+          "overlay": 0.023333333333333428
+        }
+      }
+    }
+  }
+}

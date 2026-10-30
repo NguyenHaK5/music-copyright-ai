@@ -1,0 +1,248 @@
+{
+  "tau": 0.7764430642127992,
+  "configs": {
+    "crop_3s": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 1.0,
+      "eer": 0.0,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.005
+    },
+    "crop_5s": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 1.0,
+      "eer": 0.0,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.015
+    },
+    "crop_10s": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 1.0,
+      "eer": 0.0,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.025
+    },
+    "mp3_64k": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 1.0,
+      "eer": 0.0,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.015
+    },
+    "mp3_128k": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 1.0,
+      "eer": 0.0,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.015
+    },
+    "snr_5db": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.66,
+      "mrr": 0.7318396819522962,
+      "auc": 0.79705,
+      "eer": 0.42500000000000004,
+      "correct_accept_at_tau": 0.225,
+      "fmr_at_tau": 0.0
+    },
+    "snr_10db": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.915,
+      "mrr": 0.932989448051948,
+      "auc": 0.957375,
+      "eer": 0.135,
+      "correct_accept_at_tau": 0.52,
+      "fmr_at_tau": 0.005
+    },
+    "snr_20db": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.995,
+      "mrr": 0.9966666666666667,
+      "auc": 0.99815,
+      "eer": 0.02000000000000001,
+      "correct_accept_at_tau": 0.965,
+      "fmr_at_tau": 0.005
+    },
+    "eq_lowpass_3k": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.999925,
+      "eer": 0.005000000000000003,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.01
+    },
+    "eq_highpass_500": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.994475,
+      "eer": 0.030000000000000013,
+      "correct_accept_at_tau": 0.855,
+      "fmr_at_tau": 0.015
+    },
+    "pitch_p1": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.455,
+      "mrr": 0.5522481150045897,
+      "auc": 0.709425,
+      "eer": 0.6,
+      "correct_accept_at_tau": 0.04,
+      "fmr_at_tau": 0.01
+    },
+    "pitch_m1": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.405,
+      "mrr": 0.5155447232010967,
+      "auc": 0.655825,
+      "eer": 0.625,
+      "correct_accept_at_tau": 0.04,
+      "fmr_at_tau": 0.015
+    },
+    "pitch_p2": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.44,
+      "mrr": 0.5720205012014948,
+      "auc": 0.665075,
+      "eer": 0.6,
+      "correct_accept_at_tau": 0.05,
+      "fmr_at_tau": 0.01
+    },
+    "pitch_m2": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.345,
+      "mrr": 0.47028737491628164,
+      "auc": 0.5982125,
+      "eer": 0.6950000000000001,
+      "correct_accept_at_tau": 0.02,
+      "fmr_at_tau": 0.0
+    },
+    "tempo_0.90": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.99995,
+      "eer": 0.005000000000000003,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.015
+    },
+    "tempo_1.10": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 1.0,
+      "eer": 0.0,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.01
+    },
+    "overlay_5db": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.88,
+      "mrr": 0.904061391290812,
+      "auc": 0.891775,
+      "eer": 0.20499999999999996,
+      "correct_accept_at_tau": 0.53,
+      "fmr_at_tau": 0.0
+    }
+  },
+  "groups": {
+    "cut": {
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 1.0,
+      "correct_accept_at_tau": 1.0,
+      "n_configs": 3
+    },
+    "codec": {
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 1.0,
+      "correct_accept_at_tau": 1.0,
+      "n_configs": 2
+    },
+    "noise": {
+      "recall_at_1": 0.8566666666666668,
+      "mrr": 0.8871652655569703,
+      "auc": 0.9175249999999999,
+      "correct_accept_at_tau": 0.57,
+      "n_configs": 3
+    },
+    "eq": {
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.9972,
+      "correct_accept_at_tau": 0.9275,
+      "n_configs": 2
+    },
+    "pitch": {
+      "recall_at_1": 0.41125,
+      "mrr": 0.5275251785808657,
+      "auc": 0.657134375,
+      "correct_accept_at_tau": 0.0375,
+      "n_configs": 4
+    },
+    "tempo": {
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.9999750000000001,
+      "correct_accept_at_tau": 1.0,
+      "n_configs": 2
+    },
+    "overlay": {
+      "recall_at_1": 0.88,
+      "mrr": 0.904061391290812,
+      "auc": 0.891775,
+      "correct_accept_at_tau": 0.53,
+      "n_configs": 1
+    }
+  },
+  "macro": {
+    "recall_at_1": 0.8782738095238096,
+    "mrr": 0.902678833632664,
+    "auc": 0.9233727678571428,
+    "correct_accept_at_tau": 0.7235714285714286,
+    "n_groups": 7
+  },
+  "missing_groups": [],
+  "model": "m3",
+  "label": "m3_abl_no_pitch_tempo_seed42",
+  "ckpt": "/content/drive/MyDrive/music-copyright-ai/checkpoints/m3_abl_no_pitch_tempo_seed42/best.pt",
+  "split": "val",
+  "created_utc": "2026-10-24T07:07:08.861668+00:00",
+  "seed": 42,
+  "n_index_tracks": 802,
+  "n_queries": 6800,
+  "skipped_configs": {},
+  "max_fmr_target": 0.01,
+  "timing_sec": {
+    "score_all_queries": 7.819281458000205
+  },
+  "note": "tau chọn trên Val từ unknown gộp mọi cấu hình; chưa phải kết quả cuối."
+}

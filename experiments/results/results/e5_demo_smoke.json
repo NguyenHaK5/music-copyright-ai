@@ -1,0 +1,104 @@
+{
+  "all_pass": true,
+  "rows": [
+    {
+      "file": "known_666.wav",
+      "expected": "THUỘC_DANH_MỤC",
+      "got": "THUỘC_DANH_MỤC",
+      "pass": true,
+      "top1": {
+        "rank": 1,
+        "track_id": 666,
+        "score": 0.9695624113082886,
+        "title": "Heat",
+        "artist": "Explode Into Colors",
+        "genre": "International",
+        "license_raw": "Attribution-NonCommercial-ShareAlike 3.0 International"
+      },
+      "timing_ms": {
+        "logmel": 105.87810000015452,
+        "match": 31.801599999880636,
+        "decode": 2853.80669999995
+      },
+      "license": "CC BY-NC-SA 3.0"
+    },
+    {
+      "file": "known_666_snr10.wav",
+      "expected": "THUỘC_DANH_MỤC|KHÔNG_XÁC_ĐỊNH",
+      "got": "THUỘC_DANH_MỤC",
+      "pass": true,
+      "top1": {
+        "rank": 1,
+        "track_id": 666,
+        "score": 0.8647301197052002,
+        "title": "Heat",
+        "artist": "Explode Into Colors",
+        "genre": "International",
+        "license_raw": "Attribution-NonCommercial-ShareAlike 3.0 International"
+      },
+      "timing_ms": {
+        "logmel": 38.462800000161224,
+        "match": 28.744199999891862,
+        "decode": 10.847199999943768
+      },
+      "license": "CC BY-NC-SA 3.0"
+    },
+    {
+      "file": "unknown_148.wav",
+      "expected": "NGOÀI_DANH_MỤC|KHÔNG_XÁC_ĐỊNH",
+      "got": "NGOÀI_DANH_MỤC",
+      "pass": true,
+      "top1": {
+        "rank": 1,
+        "track_id": 100550,
+        "score": 0.6929354071617126,
+        "title": "Beyond The Universe (Transcendance)",
+        "artist": "Megatone",
+        "genre": "Electronic",
+        "license_raw": "Attribution-NonCommercial-ShareAlike 3.0 International"
+      },
+      "timing_ms": {
+        "logmel": 19.865199999912875,
+        "match": 23.82150000016736,
+        "decode": 10.671800000181975
+      },
+      "license": null
+    },
+    {
+      "file": "too_short.wav",
+      "expected": "too_short",
+      "got": "too_short",
+      "pass": true,
+      "top1": null,
+      "timing_ms": null,
+      "license": null
+    },
+    {
+      "file": "silent.wav",
+      "expected": "silent",
+      "got": "silent",
+      "pass": true,
+      "top1": null,
+      "timing_ms": null,
+      "license": null
+    },
+    {
+      "file": "broken.mp3",
+      "expected": "decode_error|too_short",
+      "got": "decode_error",
+      "pass": true,
+      "top1": null,
+      "timing_ms": null,
+      "license": null
+    },
+    {
+      "file": "empty.wav",
+      "expected": "empty",
+      "got": "empty",
+      "pass": true,
+      "top1": null,
+      "timing_ms": null,
+      "license": null
+    }
+  ]
+}

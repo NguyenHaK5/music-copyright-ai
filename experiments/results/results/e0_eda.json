@@ -1,0 +1,43 @@
+{
+  "n_tracks_metadata": 8000,
+  "n_tracks_ok": 7992,
+  "drop_reason_counts": {
+    "too_short": 3,
+    "decode_error": 3,
+    "silent": 2
+  },
+  "n_artists_ok": 2307,
+  "n_albums_ok": 2462,
+  "tracks_per_artist": {
+    "min": 1,
+    "median": 1.0,
+    "max": 208
+  },
+  "genre_counts": {
+    "Pop": 1000,
+    "International": 1000,
+    "Folk": 999,
+    "Experimental": 999,
+    "Rock": 999,
+    "Electronic": 999,
+    "Instrumental": 999,
+    "Hip-Hop": 997
+  },
+  "license_family_counts": {
+    "unknown": 7992
+  },
+  "duration_sec": {
+    "min": 29.96,
+    "median": 29.98,
+    "max": 30.0
+  },
+  "n_dup_groups_gt1": 47,
+  "near_pairs_flagged": 77,
+  "near_pairs_same_artist": 60,
+  "nn_cosine_quantiles": {
+    "0.5": 0.9263157248497009,
+    "0.9": 0.9832604825496674,
+    "0.99": 0.9968502467870712,
+    "1.0": 1.0000001192092896
+  }
+}

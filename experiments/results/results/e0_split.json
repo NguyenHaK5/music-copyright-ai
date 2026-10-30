@@ -1,0 +1,51 @@
+{
+  "counts": {
+    "train": {
+      "tracks": 4794
+    },
+    "val": {
+      "tracks": 1601,
+      "known": 802,
+      "unknown": 799
+    },
+    "test": {
+      "tracks": 1597,
+      "known": 800,
+      "unknown": 797
+    }
+  },
+  "passed": true,
+  "violations": [],
+  "genre_by_split": {
+    "test": {
+      "Electronic": 194,
+      "Experimental": 208,
+      "Folk": 211,
+      "Hip-Hop": 207,
+      "Instrumental": 204,
+      "International": 195,
+      "Pop": 178,
+      "Rock": 200
+    },
+    "train": {
+      "Electronic": 594,
+      "Experimental": 588,
+      "Folk": 570,
+      "Hip-Hop": 600,
+      "Instrumental": 605,
+      "International": 609,
+      "Pop": 643,
+      "Rock": 585
+    },
+    "val": {
+      "Electronic": 211,
+      "Experimental": 203,
+      "Folk": 218,
+      "Hip-Hop": 190,
+      "Instrumental": 190,
+      "International": 196,
+      "Pop": 179,
+      "Rock": 214
+    }
+  }
+}

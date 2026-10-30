@@ -1,0 +1,51 @@
+{
+  "n_tracks": 8000,
+  "families": {
+    "CC BY-NC-SA 3.0": 2173,
+    "CC BY-NC-ND 3.0": 1725,
+    "CC BY-NC-ND 4.0": 967,
+    "CC BY": 768,
+    "CC BY-NC-SA": 607,
+    "CC BY-NC": 476,
+    "CC BY-NC 3.0": 437,
+    "CC BY-SA 3.0": 187,
+    "CC BY-SA": 182,
+    "CC BY 3.0": 121,
+    "CC BY-NC-SA 2.0": 88,
+    "CC0 (miễn trừ bản quyền do người nắm quyền tuyên bố)": 54,
+    "Phạm vi công cộng (theo khai báo của metadata, cần xác minh)": 40,
+    "CC BY-NC-ND 2.5": 34,
+    "CC BY-ND 3.0": 27,
+    "Public Domain Mark (đánh dấu phạm vi công cộng, không phải giấy phép)": 18,
+    "CC BY-ND 4.0": 18,
+    "UNKNOWN": 17,
+    "CC BY-NC 2.5": 17,
+    "CC BY-NC-SA 2.5": 16,
+    "CC BY-NC-ND 2.0": 13,
+    "Free Art License": 6,
+    "CC BY 2.5": 2,
+    "CC BY 2.0": 2,
+    "CC BY-ND 2.0": 2,
+    "CC BY-ND": 2,
+    "CC BY-ND 2.5": 1
+  },
+  "unknown_fraction": 0.002125,
+  "top_unmatched": [
+    [
+      "Noncommercial Sampling Plus",
+      8
+    ],
+    [
+      "None",
+      5
+    ],
+    [
+      "Sampling Plus",
+      3
+    ],
+    [
+      "Music Sharing",
+      1
+    ]
+  ]
+}

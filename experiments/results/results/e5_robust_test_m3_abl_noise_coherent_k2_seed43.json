@@ -1,0 +1,249 @@
+{
+  "tau": 0.7817346453666688,
+  "configs": {
+    "crop_3s": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.999975,
+      "eer": 0.005000000000000003,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.025
+    },
+    "crop_5s": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 1.0,
+      "eer": 0.0,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.015
+    },
+    "crop_10s": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.999975,
+      "eer": 0.005000000000000003,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.015
+    },
+    "mp3_64k": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 1.0,
+      "eer": 0.0,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.02
+    },
+    "mp3_128k": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 1.0,
+      "eer": 0.0,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.02
+    },
+    "snr_5db": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.965,
+      "mrr": 0.977047619047619,
+      "auc": 0.95485,
+      "eer": 0.15000000000000002,
+      "correct_accept_at_tau": 0.64,
+      "fmr_at_tau": 0.02
+    },
+    "snr_10db": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.995,
+      "mrr": 0.9975,
+      "auc": 0.997525,
+      "eer": 0.030000000000000013,
+      "correct_accept_at_tau": 0.955,
+      "fmr_at_tau": 0.025
+    },
+    "snr_20db": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.999975,
+      "eer": 0.005000000000000003,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.005
+    },
+    "eq_lowpass_3k": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.9995,
+      "eer": 0.010000000000000005,
+      "correct_accept_at_tau": 0.995,
+      "fmr_at_tau": 0.015
+    },
+    "eq_highpass_500": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.98,
+      "mrr": 0.9891666666666665,
+      "auc": 0.985375,
+      "eer": 0.06999999999999998,
+      "correct_accept_at_tau": 0.835,
+      "fmr_at_tau": 0.01
+    },
+    "pitch_p1": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.99985,
+      "eer": 0.010000000000000005,
+      "correct_accept_at_tau": 0.995,
+      "fmr_at_tau": 0.01
+    },
+    "pitch_m1": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.999575,
+      "eer": 0.015000000000000006,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.015
+    },
+    "pitch_p2": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.995,
+      "mrr": 0.9975,
+      "auc": 0.998,
+      "eer": 0.025000000000000012,
+      "correct_accept_at_tau": 0.96,
+      "fmr_at_tau": 0.005
+    },
+    "pitch_m2": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.995,
+      "mrr": 0.9975,
+      "auc": 0.99575,
+      "eer": 0.04000000000000002,
+      "correct_accept_at_tau": 0.935,
+      "fmr_at_tau": 0.015
+    },
+    "tempo_0.90": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.9999,
+      "eer": 0.010000000000000005,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.01
+    },
+    "tempo_1.10": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.999975,
+      "eer": 0.005000000000000003,
+      "correct_accept_at_tau": 1.0,
+      "fmr_at_tau": 0.01
+    },
+    "overlay_5db": {
+      "n_known": 200,
+      "n_unknown": 200,
+      "recall_at_1": 0.795,
+      "mrr": 0.8318195886351301,
+      "auc": 0.86745,
+      "eer": 0.255,
+      "correct_accept_at_tau": 0.525,
+      "fmr_at_tau": 0.0
+    }
+  },
+  "groups": {
+    "cut": {
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.9999833333333333,
+      "correct_accept_at_tau": 1.0,
+      "n_configs": 3
+    },
+    "codec": {
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 1.0,
+      "correct_accept_at_tau": 1.0,
+      "n_configs": 2
+    },
+    "noise": {
+      "recall_at_1": 0.9866666666666667,
+      "mrr": 0.9915158730158731,
+      "auc": 0.9841166666666666,
+      "correct_accept_at_tau": 0.8649999999999999,
+      "n_configs": 3
+    },
+    "eq": {
+      "recall_at_1": 0.99,
+      "mrr": 0.9945833333333333,
+      "auc": 0.9924375000000001,
+      "correct_accept_at_tau": 0.915,
+      "n_configs": 2
+    },
+    "pitch": {
+      "recall_at_1": 0.9975,
+      "mrr": 0.99875,
+      "auc": 0.99829375,
+      "correct_accept_at_tau": 0.9725,
+      "n_configs": 4
+    },
+    "tempo": {
+      "recall_at_1": 1.0,
+      "mrr": 1.0,
+      "auc": 0.9999374999999999,
+      "correct_accept_at_tau": 1.0,
+      "n_configs": 2
+    },
+    "overlay": {
+      "recall_at_1": 0.795,
+      "mrr": 0.8318195886351301,
+      "auc": 0.86745,
+      "correct_accept_at_tau": 0.525,
+      "n_configs": 1
+    }
+  },
+  "macro": {
+    "recall_at_1": 0.9670238095238096,
+    "mrr": 0.9738098278549053,
+    "auc": 0.9774598214285714,
+    "correct_accept_at_tau": 0.8967857142857143,
+    "n_groups": 7
+  },
+  "missing_groups": [],
+  "model": "m3",
+  "label": "m3_abl_noise_coherent_k2_seed43",
+  "ckpt": "experiments/runs/m3_abl_noise_coherent_k2_seed43/best.pt",
+  "split": "test",
+  "created_utc": "2026-10-25T13:16:19.952325+00:00",
+  "seed": 42,
+  "n_index_tracks": 800,
+  "n_queries": 6800,
+  "skipped_configs": {},
+  "max_fmr_target": 0.01,
+  "tau_source": "val:e5_robust_val_m3_abl_noise_coherent_k2_seed43.json",
+  "timing_sec": {
+    "score_all_queries": 95.41418410000188
+  },
+  "note": "KẾT QUẢ TEST (một lần): tau cố định từ Val."
+}

@@ -1,0 +1,133 @@
+{
+  "n_queries": 200,
+  "clean": {
+    "recall_at_1": 1.0,
+    "tilt_db": -26.670732877254487
+  },
+  "recall_by_snr": {
+    "additive": {
+      "-10": 0.385,
+      "-5": 0.86,
+      "0": 0.975,
+      "5": 1.0,
+      "10": 1.0,
+      "15": 1.0,
+      "20": 1.0,
+      "25": 1.0
+    },
+    "coherent": {
+      "-10": 0.01,
+      "-5": 0.04,
+      "0": 0.075,
+      "5": 0.175,
+      "10": 0.225,
+      "15": 0.37,
+      "20": 0.615,
+      "25": 0.785
+    }
+  },
+  "conditions": {
+    "snr_5db": {
+      "nominal_snr_db": 5.0,
+      "real": {
+        "recall_at_1": 0.29,
+        "tilt_db": -6.918841786384583
+      },
+      "equivalent_synthetic_snr_db_by_tilt": 7.0,
+      "synthetic_same_nominal": {
+        "recall_at_1": 1.0,
+        "tilt_db": -6.252251110076904
+      },
+      "equivalent_snr_by_recall_additive": -10.0,
+      "synthetic_coherent_same_nominal": {
+        "recall_at_1": 0.175,
+        "tilt_db": -5.635388511419296
+      },
+      "equivalent_snr_by_recall_coherent": 10.0
+    },
+    "snr_10db": {
+      "nominal_snr_db": 10.0,
+      "real": {
+        "recall_at_1": 0.65,
+        "tilt_db": -9.937227920293807
+      },
+      "equivalent_synthetic_snr_db_by_tilt": 13.0,
+      "synthetic_same_nominal": {
+        "recall_at_1": 1.0,
+        "tilt_db": -8.82187363266945
+      },
+      "equivalent_snr_by_recall_additive": -5.0,
+      "synthetic_coherent_same_nominal": {
+        "recall_at_1": 0.225,
+        "tilt_db": -8.479830356836318
+      },
+      "equivalent_snr_by_recall_coherent": 20.0
+    },
+    "snr_20db": {
+      "nominal_snr_db": 20.0,
+      "real": {
+        "recall_at_1": 0.965,
+        "tilt_db": -16.01355934381485
+      },
+      "equivalent_synthetic_snr_db_by_tilt": 23.0,
+      "synthetic_same_nominal": {
+        "recall_at_1": 1.0,
+        "tilt_db": -14.49265605211258
+      },
+      "equivalent_snr_by_recall_additive": 0.0,
+      "synthetic_coherent_same_nominal": {
+        "recall_at_1": 0.615,
+        "tilt_db": -14.793789962530136
+      },
+      "equivalent_snr_by_recall_coherent": 25.0
+    }
+  },
+  "coherent_k": {
+    "1": {
+      "recall_at_1": {
+        "snr_5db": 0.175,
+        "snr_10db": 0.225,
+        "snr_20db": 0.615
+      },
+      "l1_to_real": 0.89
+    },
+    "2": {
+      "recall_at_1": {
+        "snr_5db": 0.4,
+        "snr_10db": 0.745,
+        "snr_20db": 0.975
+      },
+      "l1_to_real": 0.21500000000000002
+    },
+    "4": {
+      "recall_at_1": {
+        "snr_5db": 0.125,
+        "snr_10db": 0.44,
+        "snr_20db": 0.93
+      },
+      "l1_to_real": 0.4099999999999999
+    },
+    "8": {
+      "recall_at_1": {
+        "snr_5db": 0.045,
+        "snr_10db": 0.28,
+        "snr_20db": 0.905
+      },
+      "l1_to_real": 0.6749999999999999
+    },
+    "16": {
+      "recall_at_1": {
+        "snr_5db": 0.025,
+        "snr_10db": 0.24,
+        "snr_20db": 0.88
+      },
+      "l1_to_real": 0.76
+    }
+  },
+  "best_k_by_l1": 2,
+  "ckpt": "experiments/runs/m3_seed42/best.pt",
+  "tag": "seed42_v3",
+  "split": "val",
+  "seconds": 253.8,
+  "note": "Chỉ truy vấn known, chỉ mục 802 bài Val; chẩn đoán, không phải kết quả cuối."
+}
